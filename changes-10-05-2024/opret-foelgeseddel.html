@@ -86,69 +86,72 @@
 						<div class="tab-container col col--xxs-16 js-active" id="subjectTab">
 							<div class="accordion js-active row row--no-gutters">
 								<div class="accordion__header row row--no-gutters">
-									<div class=""><span class="accordion__headline">Ordreinfo</span>
+									<div><span class="accordion__headline">Information</span>
 									</div>
 									<div class="accordion__icon--container">
 										<span class="accordion__expand">
 											<span class="icon icon--expand">
+												<img src="assets/images/icons/chevron.svg" alt="Expand">
 											</span>
 										</span>
 									</div>
 								</div>
+
 								<div class="accordion__content row row--no-gutters">
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="orderInfoOrderNumber">Ordrenr. (anføres
 												på faktura)</label>
-											<span>
-												*</span>
+											<span class="accordion__label--obligatorisk">*</span>
 										</div>
-										<div class=" col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-											<input class="accordion__input" id="orderInfoOrderNumber" type="text"
-												name="orderInfoOrderNumber" placeholder="Indtast ordrenr.">
+										<div>
+											<input class="accordion__input accordion__input--error"
+												id="orderInfoOrderNumber" type="text" name="orderInfoOrderNumber"
+												placeholder="Indtast ordrenr.">
 											<span class="accordion__input--error--message">
 												Dette felt er obligatorisk
 											</span>
 										</div>
 									</div>
-
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="orderInfoRevNumber">Rekvnr. (anføres på
 												faktura)</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="orderInfoRevNumber" type="text"
 												name="orderInfoRevNumber" placeholder="Indtast rekvnr.">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="orderInfoRetrievalSize">Hvad fylder
-												afhentningen</label>
+												afhentningen (mm)</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="orderInfoRetrievalSize" type="text"
-												name="orderInfoRetrievalSize"
-												placeholder="ex. 1 EU palle 1200x800 + 1 bdt. rør 300x80">
+												name="orderInfoRetrievalSize" placeholder="">
+											<span class="accordion__input--helper--text">
+												ex. 1 EU palle 1200x800 + 1 bdt. rør 300x80 </span>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="orderInfoTotalWeight">Totalvægt ved
 												afhentning</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="orderInfoTotalWeight" type="text"
 												name="orderInfoTotalWeight" placeholder="Indtast totalvægt i kg.">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="orderInfoDOTNumber">DOT nr. (tilbuds-
 												/ordrenummer)</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<div class="accordion__select-container">
 												<select class="accordion__select" id="orderInfoDOTNumber"
 													name="orderInfoDOTNumber" required>
@@ -157,63 +160,69 @@
 													<option>Option 2</option>
 													<option>Option 3</option>
 												</select>
-												<div class="accordion__select-chevron"></div>
+												<div class="accordion__select-chevron">
+													<img src="assets/images/icons/chevron.svg" alt="Chevron">
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="orderInfoDOTSpecialTask">DOT
 												specialopgave</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="orderInfoDOTSpecialTask" type="text"
 												name="orderInfoDOTSpecialTask" placeholder="Indtast specialopgavenr.">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="orderInfoComment">Bemærkning</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-											<input class="accordion__input" id="orderInfoComment" type="text"
-												name="orderInfoComment" placeholder="Indtast bemærkning">
+										<div>
+											<textarea class="accordion__input" id="orderInfoComment"
+												name="orderInfoComment" placeholder="Indtast bemærkning"></textarea>
 										</div>
 									</div>
 								</div>
 							</div>
+
 							<div class="accordion js-active row row--no-gutters">
 								<div class="accordion__header row row--no-gutters">
-									<div class="col col--xxs-10"><span class="accordion__headline">Varenavn (kaldes fra
+									<div><span class="accordion__headline">Varenavn (kaldes fra
 											varenavn)</span></div>
-									<div class="col col--xxs-4 col--m-5 text--right"><span
-											class="accordion__link accordion__link--delete">Slet emne</span></div>
-									<div class="col col--xxs-2 col--m-1"><span class="accordion__expand"><span
-												class="icon icon--expand"></span></span></div>
+									<!-- <div ><span class="accordion__link accordion__link--delete">Slet emne</span>
+									</div> -->
+									<div class="accordion__icon--container">
+										<span class="accordion__expand">
+											<span class="icon icon--expand">
+												<img src="assets/images/icons/chevron.svg" alt="Expand">
+											</span>
+										</span>
+									</div>
 								</div>
 								<div class="accordion__content row row--no-gutters">
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNameNumber">Varenummer</label>
 										</div>
-										<div
-											class="product-list--container col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div class="product-list--container ">
 											<input class="accordion__input" id="productNameNumber" type="text"
 												name="productNameNumber" placeholder="Indtast eget varenummer">
 											<div class="product-list">
 												<div class="product-list__product">
 													<div class="row">
-														<div class="col col--xxs-4 col--m-3"><img
-																class="product-list__product-image"
+														<div><img class="product-list__product-image"
 																src="assets/images/product-list__placeholder.png"
 																alt=""></div>
-														<div class="col col--xxs-12">
+														<div>
 															<p class="product-list__product-name">Varenavn</p>
 															<p class="product-list__product-number">Varenr. 1901277</p>
 														</div>
 													</div>
 													<div class="row">
-														<div class="col col--xxs-8">
+														<div>
 															<p class="product-list__product-description">Højde
 																(mm):<span>2080</span></p>
 															<p class="product-list__product-description">Bredde
@@ -221,7 +230,7 @@
 															<p class="product-list__product-description">Længde
 																(mm):<span>2080</span></p>
 														</div>
-														<div class="col col--xxs-8">
+														<div>
 															<p class="product-list__product-description">
 																Enhed:<span>2080</span></p>
 															<p class="product-list__product-description">
@@ -235,17 +244,16 @@
 												</div>
 												<div class="product-list__product">
 													<div class="row">
-														<div class="col col--xxs-4 col--m-3"><img
-																class="product-list__product-image"
+														<div><img class="product-list__product-image"
 																src="assets/images/product-list__placeholder.png"
 																alt=""></div>
-														<div class="col col--xxs-12">
+														<div>
 															<p class="product-list__product-name">Varenavn</p>
 															<p class="product-list__product-number">Varenr. 1901277</p>
 														</div>
 													</div>
 													<div class="row">
-														<div class="col col--xxs-8">
+														<div>
 															<p class="product-list__product-description">Højde
 																(mm):<span>2080</span></p>
 															<p class="product-list__product-description">Bredde
@@ -253,7 +261,7 @@
 															<p class="product-list__product-description">Længde
 																(mm):<span>2080</span></p>
 														</div>
-														<div class="col col--xxs-8">
+														<div>
 															<p class="product-list__product-description">
 																Enhed:<span>2080</span></p>
 															<p class="product-list__product-description">
@@ -267,17 +275,16 @@
 												</div>
 												<div class="product-list__product">
 													<div class="row">
-														<div class="col col--xxs-4 col--m-3"><img
-																class="product-list__product-image"
+														<div><img class="product-list__product-image"
 																src="assets/images/product-list__placeholder.png"
 																alt=""></div>
-														<div class="col col--xxs-12">
+														<div>
 															<p class="product-list__product-name">Varenavn</p>
 															<p class="product-list__product-number">Varenr. 1901277</p>
 														</div>
 													</div>
 													<div class="row">
-														<div class="col col--xxs-8">
+														<div>
 															<p class="product-list__product-description">Højde
 																(mm):<span>2080</span></p>
 															<p class="product-list__product-description">Bredde
@@ -285,7 +292,7 @@
 															<p class="product-list__product-description">Længde
 																(mm):<span>2080</span></p>
 														</div>
-														<div class="col col--xxs-8">
+														<div>
 															<p class="product-list__product-description">
 																Enhed:<span>2080</span></p>
 															<p class="product-list__product-description">
@@ -300,88 +307,89 @@
 											</div>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNameName">Varenavn</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="productNameName" type="text"
 												name="productNameName" placeholder="Indtast varenavn">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNameAmount">Antal</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="productNameAmount" type="text"
 												name="productNameAmount" placeholder="Indtast antal">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNamePackaging">Emballage</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="productNamePackaging" type="text"
 												name="productNamePackaging" placeholder="Skriv evt. to blå spande">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNameHeight">Højde (mm)</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="productNameHeight" type="text"
 												name="productNameHeight" placeholder="Indtast højde i mm.">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNameWidth">Bredde (mm)</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="productNameWidth" type="text"
 												name="productNameWidth" placeholder="Indtast bredde i mm.">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNameLength">Længde (mm)</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<input class="accordion__input" id="productNameLength" type="text"
 												name="productNameLength" placeholder="Indtast længde i mm.">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNameMyRequirement">My
 												Krav</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div>
 											<!-- "Fejl" sættes med accordion__input--error-->
-											<input class="accordion__input accordion__input--error"
-												id="productNameMyRequirement" type="text"
+											<input class="accordion__input" id="productNameMyRequirement" type="text"
 												name="productNameMyRequirement"
 												placeholder="Indtast my krav (tal verificering)">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+									<div class="col">
+										<div>
 											<label class="accordion__label" for="productNameComment">Bemærkning</label>
 										</div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-											<input class="accordion__input" id="productNameComment" type="text"
+										<div>
+											<textarea class="accordion__input" id="productNameComment"
 												name="productNameComment"
-												placeholder="Indtast bemærkning til varenummer">
+												placeholder="Indtast bemærkning til varenummer"></textarea>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Tilføj billede eller tegn skitse</span></div>
+									<div class="col">
+										<div><span class="accordion__label">Tilføj billede eller tegn
+												skitse</span>
+											<span class="accordion__label--obligatorisk">*</span>
+										</div>
 										<div
-											class="col file-upload--container col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											class="row file-upload--container col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
 											<div class="file-upload file-upload--image"><span
 													class="paragraph--small file-upload__link"
 													onclick="this.nextElementSibling.click()">+ Tilføj billede</span>
@@ -401,20 +409,14 @@
 											</div>
 										</div>
 									</div>
-									<div class="row">
-										<div
-											class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
+									<div class="col">
+										<div class="col accordion__input--checkbox--container">
 											<input class="accordion__input--checkbox" id="productNamePackAsShown"
 												type="checkbox" name="productNamePackAsShown">
 											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+												class="accordion__label accordion__label--checkbox accordion__label--checkbox"
 												for="productNamePackAsShown">Pakkes som vist på billede</label>
-										</div>
-									</div>
-									<div class="row">
-										<div
-											class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
-											<input class="accordion__input--checkbox" id="productNameAddNumber"
+												<input class="accordion__input--checkbox" id="productNameAddNumber"
 												type="checkbox" name="productNameAddNumber">
 											<label class="accordion__label accordion__label--checkbox"
 												for="productNameAddNumber">Tilføj varenummer til vareliste</label>
@@ -422,6 +424,8 @@
 									</div>
 								</div>
 							</div>
+
+
 							<div class="tab-footer row row--no-gutters">
 								<div class="accordion__add-more row">
 									<div class="col col--xxs-16 text--right"><span
@@ -434,6 +438,8 @@
 								</div>
 							</div>
 						</div>
+
+
 						<!-- Behandling-->
 						<div class="tab-container col col--xxs-16" id="handlingTab">
 							<!-- Overfladebehandling-->
@@ -847,119 +853,111 @@
 								</div>
 								<div class="accordion__content row row--no-gutters">
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Ordrenr. (anføres på faktura)</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">12345</span></div>
+										<div><span class="accordion__label">Ordrenr. (anføres på
+												faktura)</span></div>
+										<div><span class="accordion__text accordion__text--grey">12345</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Rekvnr. (anføres på faktura)</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">12345</span></div>
+										<div><span class="accordion__label">Rekvnr. (anføres på faktura)</span>
+										</div>
+										<div><span class="accordion__text accordion__text--grey">12345</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Hvad fylder afhentningen</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">1 EU palle 1200x800 + 1
-												bdt. rør 300x80</span></div>
+										<div>
+											<span class="accordion__label">Hvad fylder afhentningen</span>
+										</div>
+										<div>
+											<span class="accordion__text accordion__helper--text">1 EU palle
+												1200x800 + 1
+												bdt. rør 300x80
+											</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Totalvægt ved afhentning</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">2500 kg</span></div>
+										<div><span class="accordion__label">Totalvægt ved afhentning</span>
+										</div>
+										<div><span class="accordion__text accordion__text--grey">2500 kg</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">DOT nr. (tilbuds- /ordrenummer)</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">123456</span></div>
+										<div><span class="accordion__label">DOT nr. (tilbuds-
+												/ordrenummer)</span></div>
+										<div><span class="accordion__text accordion__text--grey">123456</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">DOT specialopgave</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">123456</span></div>
+										<div><span class="accordion__label">DOT specialopgave</span></div>
+										<div><span class="accordion__text accordion__text--grey">123456</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Bemærkning</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">...</span></div>
+										<div><span class="accordion__label">Bemærkning</span></div>
+										<div><span class="accordion__text accordion__text--grey">...</span>
+										</div>
 									</div>
 								</div>
 							</div>
 							<!-- Varenavn-->
 							<div class="accordion js-active row row--no-gutters">
 								<div class="accordion__header row row--no-gutters">
-									<div class="col col--xxs-10"><span class="accordion__headline">Varenavn (kaldes fra
+									<div><span class="accordion__headline">Varenavn (kaldes fra
 											varenavn)</span></div>
-									<div class="col col--xxs-4 col--m-5 text--right"><span
-											class="accordion__link accordion__link--delete">Slet emne</span></div>
-									<div class="col col--xxs-2 col--m-1"><span class="accordion__expand"><span
-												class="icon icon--expand"></span></span></div>
+									<div><span class="accordion__link accordion__link--delete">Slet emne</span>
+									</div>
+									<div><span class="accordion__expand"><span class="icon icon--expand"></span></span>
+									</div>
 								</div>
 								<div class="accordion__content row row--no-gutters">
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Varenummer</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">123456</span></div>
+										<div><span class="accordion__label">Varenummer</span></div>
+										<div><span class="accordion__text accordion__text--grey">123456</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Varenavn</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">Metal vinkel</span></div>
+										<div><span class="accordion__label">Varenavn</span></div>
+										<div><span class="accordion__text accordion__text--grey">Metal
+												vinkel</span></div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Antal</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">..</span></div>
+										<div><span class="accordion__label">Antal</span></div>
+										<div><span class="accordion__text accordion__text--grey">..</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Emballage</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">..</span></div>
+										<div><span class="accordion__label">Emballage</span></div>
+										<div><span class="accordion__text accordion__text--grey">..</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Højde (mm)</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">..</span></div>
+										<div><span class="accordion__label">Højde (mm)</span></div>
+										<div><span class="accordion__text accordion__text--grey">..</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Bredde (mm)</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">..</span></div>
+										<div><span class="accordion__label">Bredde (mm)</span></div>
+										<div><span class="accordion__text accordion__text--grey">..</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Længde (mm)</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">..</span></div>
+										<div><span class="accordion__label">Længde (mm)</span></div>
+										<div><span class="accordion__text accordion__text--grey">..</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">My Krav</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">..</span></div>
+										<div><span class="accordion__label">My Krav</span></div>
+										<div><span class="accordion__text accordion__text--grey">..</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Bemærkning</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
-												class="accordion__text accordion__text--grey">..</span></div>
+										<div><span class="accordion__label">Bemærkning</span></div>
+										<div><span class="accordion__text accordion__text--grey">..</span>
+										</div>
 									</div>
 									<div class="row">
-										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
-												class="accordion__label">Billede</span></div>
-										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+										<div><span class="accordion__label">Billede</span></div>
+										<div>
 											<!-- ¯\_(ツ)_/¯--><img class="file-upload__thumbnail"
 												src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 												alt="">

@@ -79,14 +79,14 @@ body {
 	font-family: "Canaro", sans-serif;
 	font-size: 100%;
 	color: #000;
-	background-color: #e7e7e7;
+	background-color: white;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
 	body {
 		background: linear-gradient(150deg, rgba(252, 252, 252, 0.58) 0%, rgba(252, 252, 252, 0.58) 1%, rgba(231, 231, 231, 0.58) 100%);
 	}
-}
+} */
 
 @media (min-width: 1366px) {
 	body {
@@ -218,10 +218,12 @@ input[type="tel"],
 input[type="email"],
 input[type="password"],
 input[type="number"] {
-	width: calc(100% - 0.38em);
+	/* width: calc(100% - 0.38em);
 	margin-bottom: 1.388889em;
 	padding: 0.8125em 1em;
-	border: 1px solid #707070;
+	border: 1px solid #707070; */
+
+	width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -326,7 +328,6 @@ textarea {
 	flex: 0 0 100%;
 	box-sizing: border-box;
 	max-width: 100%;
-	padding: 1rem 0.5rem 0;
 }
 
 .col--no-gutters {
@@ -360,11 +361,10 @@ textarea {
 
 .row {
 	display: flex;
-	flex: 0 1 100%;
 	flex-direction: row;
+	flex: 0 1 100%;
 	flex-wrap: wrap;
 	box-sizing: border-box;
-	margin: -1rem -0.5rem 1rem;
 	padding: 0;
 	list-style: none;
 }
@@ -3281,48 +3281,6 @@ textarea {
 	vertical-align: middle;
 }
 
-.btn--input-clear {
-	position: relative;
-	z-index: 3;
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	margin-bottom: -0.25em;
-	margin-left: -2em;
-	font-size: 1rem;
-	transition: opacity 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-	cursor: pointer;
-}
-
-@media (min-width: 1024px) {
-	.btn--input-clear {
-		font-size: 0.777778rem;
-	}
-}
-
-.btn--input-clear::before,
-.btn--input-clear::after {
-	position: absolute;
-	background-color: #535350;
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
-	content: "";
-}
-
-.btn--input-clear::before {
-	top: 0;
-	left: calc(50% - 1px);
-	width: 2px;
-	height: 100%;
-}
-
-.btn--input-clear::after {
-	top: calc(50% - 1px);
-	left: 0;
-	width: 100%;
-	height: 2px;
-}
-
 .section--login {
 	margin-top: 7.5rem;
 }
@@ -4462,6 +4420,12 @@ Max-width then restricts it to our breakpoints.
 	padding: 0;
 	opacity: 0;
 	transition: opacity 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955), visibility 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	margin-top: 24px;
+	column-gap: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
 }
 
 .tab-container.js-active {
@@ -4469,7 +4433,6 @@ Max-width then restricts it to our breakpoints.
 	visibility: visible;
 	overflow: visible;
 	height: auto;
-	padding: 1rem 0.5rem;
 	opacity: 1;
 }
 
@@ -4988,8 +4951,8 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__file--sub.js-active .document-list__link--expand .icon--expand {
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .document-list__file--sub::before {
@@ -5003,8 +4966,8 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__file--sub-item.js-active .icon--expand {
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .document-list__file--sub-order {
@@ -5064,8 +5027,8 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__file--sub-list.js-active .icon--expand {
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .document-list__file--sub-list.js-active .document-list__order-lines {
@@ -5434,38 +5397,12 @@ Max-width then restricts it to our breakpoints.
 	}
 }
 
-.icon {
-	position: relative;
-	transition: -webkit-transform 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-	transition: transform 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-	transition: transform 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955), -webkit-transform 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-}
-
 .icon--expand {
+	display: flex;
 	width: 20px;
 	height: 20px;
+	padding: 4px;
 	cursor: pointer;
-}
-
-.icon--expand::before,
-.icon--expand::after {
-	position: absolute;
-	z-index: -1;
-	background: #565656;
-	content: "";
-}
-
-.icon--expand::before {
-	left: calc(50%);
-	width: 2px;
-	height: 100%;
-}
-
-.icon--expand::after {
-	top: calc(50% - 1px);
-	left: 1px;
-	width: 100%;
-	height: 2px;
 }
 
 .icon--responsive {
@@ -5708,26 +5645,31 @@ Max-width then restricts it to our breakpoints.
 
 .accordion .accordion__content {
 	display: none;
+	row-gap: 32px;
+}
+
+.accordion .accordion__content .col {
+	display: flex;
+	flex-direction: column;
 }
 
 .accordion.js-active .accordion__header {
-	margin-bottom: 1.388889rem;
+	margin-bottom: 24px;
 }
 
 .accordion.js-active .accordion__content {
 	display: flex;
-	padding-left: 0.5em;
+	padding-left: 32px;
+	padding-right: 32px;
 }
 
 .accordion.js-active .icon--expand {
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
+	-webkit-transform: scaleY(-1);
+	transform: scaleY(-1);
 }
 
 .accordion__header {
-	margin-top: 1.666667rem;
 	background-color: #F9FAFC;
-	margin-bottom: 20px;
 	box-shadow: 0px 0px 0px 2px white inset;
 	border-radius: 8px;
 	border: 1px #EEF0F4 solid;
@@ -5736,6 +5678,8 @@ Max-width then restricts it to our breakpoints.
 
 .accordion__icon--container {
 	margin-left: auto;
+	display: flex;
+	align-items: center;
 }
 
 .accordion__headline {
@@ -5748,11 +5692,11 @@ Max-width then restricts it to our breakpoints.
 }
 
 .accordion__label {
-	margin-bottom: 0.5em;
+	font-size: 13px;
 	font-weight: 600;
-	font-size: 0.875rem;
-	letter-spacing: 0.076923em;
+	margin-bottom: 12px;
 	text-transform: none;
+	display: inline-flex;
 }
 
 .accordion__label--obligatorisk {
@@ -5769,51 +5713,29 @@ Max-width then restricts it to our breakpoints.
 .accordion__expand {
 	display: flex;
 	justify-content: flex-end;
-	padding-top: 0;
 	cursor: pointer;
 }
 
-@media (min-width: 1024px) {
-	.accordion__expand {
-		padding-top: 0.2em;
-	}
-}
-
 .accordion__input[type=text],
-.accordion__input[type=number] {
-	margin-bottom: 0.625em;
-	padding: 0;
-	padding-right: 1.75em;
-	padding-bottom: 0.6875em;
+.accordion__input[type=number],
+textarea.accordion__input,
+.accordion__select-container {
+	width: 100%;
 	font-family: "Canaro", sans-serif;
-	font-weight: 400;
-	font-size: 1rem;
-	letter-spacing: normal;
-	border: 0;
 	border-bottom: 1px solid #535350;
-	background-color: transparent;
-	outline: 0;
-
-	color: #A8ADB8;
+	color: #111827;
 	font-size: 15px;
 	font-weight: 400;
 	line-height: 24px;
 	padding: 10px 16px;
 	border-radius: 8px;
 	border: 1px solid #E0E0E4;
+	resize: none;
 }
 
-@media (min-width: 1024px) {
-
-	.accordion__input[type=text],
-	.accordion__input[type=number] {
-		margin-bottom: 0.714286em;
-		padding-right: 1.777778em;
-		padding-bottom: 0.571429em;
-		font-size: 0.777778rem;
-	}
+textarea::placeholder {
+	color: #A8ADB8
 }
-
 
 .accordion__input[type=text]::-webkit-input-placeholder,
 .accordion__input[type=number]::-webkit-input-placeholder {
@@ -5849,13 +5771,33 @@ Max-width then restricts it to our breakpoints.
 
 .accordion__input--error[type=text],
 .accordion__input--error[type=number] {
+	box-shadow: 0px 0px 0px 3px rgba(225, 35, 75, 0.10);
 	border-color: #E1234B;
+	margin-bottom: 0;
 }
 
 .accordion__input--error--message {
 	color: #E1234B;
+	font-size: 13px;
+	display:none;
 }
 
+.accordion__input--error + .accordion__input--error--message {
+    display: block;
+	margin-top: 8px;
+}
+
+.accordion__input--helper--text {
+	display: block;
+	color: #70747D;
+	font-size: 13px;
+	margin-top:12px;
+}
+
+.accordion__input--checkbox--container {
+	disply
+	gap: 8px;
+}
 
 .accordion__input--checkbox[type=checkbox] {
 	position: absolute;
@@ -5881,7 +5823,7 @@ Max-width then restricts it to our breakpoints.
 .accordion__label--checkbox {
 	position: relative;
 	display: block;
-	margin: 0 0.75em;
+	/* margin: 0 0.75em; */
 	font-weight: 400;
 	font-size: 0.875rem;
 	letter-spacing: normal;
@@ -5944,17 +5886,14 @@ Max-width then restricts it to our breakpoints.
 
 .accordion__select-container {
 	position: relative;
+	background-color: white;
 }
 
 .accordion__select {
 	width: 100%;
-	margin-bottom: 0.625em;
-	padding-top: 0.25em;
-	padding-bottom: 0.6875em;
 	font-family: "Canaro", sans-serif;
-	font-size: 1rem;
+	font-size: 15px;
 	border: 0;
-	border-bottom: 1px solid #535350;
 	border-radius: 0;
 	background: 0;
 	transition: border-color 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955), opacity 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -5962,15 +5901,6 @@ Max-width then restricts it to our breakpoints.
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-}
-
-@media (min-width: 1024px) {
-	.accordion__select {
-		margin-bottom: 0.714286em;
-		padding-top: 0.285714em;
-		padding-bottom: 0.571429em;
-		font-size: 0.777778rem;
-	}
 }
 
 .accordion__select.js-disabled {
@@ -5995,18 +5925,6 @@ Max-width then restricts it to our breakpoints.
 	top: 0.5em;
 	right: 0.75em;
 	display: block;
-	width: 0.5em;
-	height: 0.5em;
-	border-right: 1px solid #535350;
-	border-bottom: 1px solid #535350;
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
-}
-
-@media (min-width: 1024px) {
-	.accordion__select-chevron {
-		top: 0.3em;
-	}
 }
 
 .accordion__add-more {
