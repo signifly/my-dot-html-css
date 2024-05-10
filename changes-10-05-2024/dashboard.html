@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="da-DK">
+	<head>
+		<meta charset="utf-8">
+		<title>Mit DOT</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="assets/scripts/load.min.js"></script>
+		<link rel="stylesheet" href="assets/styles/main.min.css">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<script src="assets/scripts/vendors/moment.min.js"></script>
+		<script src="assets/scripts/vendors/pikaday.min.js"></script>
+	</head>
+	<body>
+		<main>
+			<section class="section section--dashboard">
+				<div class="row">
+					<div class="col col--xxs-16 col--m-4 col--l-4 col--xl-3 navigation--container" id="sidenavigation">
+						<div class="navigation"><img class="logo logo--white logo--dashboard" src="assets/images/dot-logo--white.svg" alt="DOT logo">
+							<p class="login-status">Du er logget ind som<span class="login-status__username">Anders Sønderbæk</span></p>
+							<ul class="navigation__list-container">
+								<li class="navigation__list-item"><a class="navigation__list-link navigation__list-link--active" href="dashboard.html">Dashboard</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="opret-foelgeseddel.html">Opret følgeseddel</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="oekonomi.html">Kundecenter</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="ordreoversigt.html">Oversigt</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="downloadcenter.html">Downloadcenter</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="kontakt.html">Kontakt</a></li>
+							</ul>
+							<ul class="options">
+								<li class="options__item"><a class="options__link" href="hjaelp-til-mit-dot.html"><span class="icon options__icon"><img src="assets/images/icons/questionmark.svg" alt="Questionmark"></span>Hjælp til mit DOT</a></li>
+								<li class="options__item"><a class="options__link" href="indstillinger.html"><span class="icon options__icon"><img src="assets/images/icons/cogwheel.svg" alt="Icon Placeholder"></span>Indstillinger</a></li>
+								<li class="options__item options__item--log-out"><a class="options__link" href="#"><span class="icon options__icon"><img src="assets/images/icons/log-out.svg" alt="Icon Placeholder"></span>Log ud</a></li>
+							</ul>
+						</div>
+					</div>
+					<button class="btn btn--sidenavigation" id="sidenavigationBtn"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+					<div class="col col--xxs-16 col--m-12 col--l-12 col--xl-13">
+						<div class="row row--no-gutters header header--container">
+							<div class="col mobile-subnavigation col--xxs-16"><img class="logo logo--mobile" src="assets/images/dot-logo.svg" alt="DOT logo">
+								<div class="language-select"><span class="icon language-select__icon" id="languageSelect"><img src="assets/images/icons/globe.svg" alt="Globe"></span>
+									<ul class="language-select__list">
+										<li class="language-select__language js-active"><a href="#">DK</a></li>
+										<li class="language-select__language"><a href="#">SE</a></li>
+										<li class="language-select__language"><a href="#">DE</a></li>
+										<li class="language-select__language"><a href="#">EN</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row content content--container">
+							<div class="col col--xxs-16">
+								<h1 class="heading heading--page">Velkommen til Mit DOT</h1>
+							</div>
+							<div class="col col--xxs-8 col--l-5">
+								<div class="card"><img class="card__icon" src="assets/images/icons/truck-plus.svg" alt="Truck icon">
+									<h2 class="card__headline">Opret følgeseddel</h2>
+									<p class="card__description">Få nemt og hurtigt dine emner registreret ved at indsende din følgeseddel online.</p>
+								</div>
+								<div class="card"><img class="card__icon" src="assets/images/icons/fakturaer.svg" alt="Receipt icon">
+									<h2 class="card__headline">Fakturaer</h2>
+									<p class="card__description">Søg i alle dine fakturaer og find lige netop den faktura, som du behøver.</p>
+								</div>
+							</div>
+							<div class="col col--xxs-8 col--l-5">
+								<div class="card"><img class="card__icon" src="assets/images/icons/overview.svg" alt="Overview icon">
+									<h2 class="card__headline">Oversigt</h2>
+									<p class="card__description">Se dine igangværende følgesedler eller søg efter tidligere følgesedler i vores arkiv</p>
+								</div>
+								<div class="card"><img class="card__icon" src="assets/images/icons/downloadcenter.svg" alt="Documentation icon">
+									<h2 class="card__headline">Downloadcenter</h2>
+									<p class="card__description">Find tekniske vejledninger og infoblade, som kan hjælpe til den helt rette løsning.</p>
+								</div>
+							</div>
+							<div class="col col--xxs-16 col--l-6">
+								<div class="card card--grey card--information">
+									<h2 class="card__headline">Firmaprofil</h2>
+									<div class="row">
+										<div class="col col--no-gutters col--xxs-16">
+											<p class="card__information-title">Firmanavn<span class="card__information">Kunde A</span></p>
+											<p class="card__information-title">Kontaktperson<span class="card__information">John Wayne</span></p>
+											<p class="card__information-title">Firmanavn<span class="card__information">Kunde A</span></p>
+										</div>
+										<div class="col col--no-gutters col--xxs-16">
+											<p class="card__information-title">Kontakt nr.<span class="card__information">+45 1234 5678</span></p>
+											<p class="card__information-title">E-mail<span class="card__information">kontakt@mail.dk</span></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="modal" id="modal" tabindex="0">
+				<div class="modal__backdrop"></div>
+				<div class="modal__container">
+					<div class="modal__content"><a class="modal__action modal__action--close" id="modalCloseBtn" href="#"><img src="assets/images/icons/close.svg" alt="Close"></a>
+						<h4 class="modal__headline">Modal header</h4>
+						<p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+					</div>
+					<div class="modal__footer"><a class="modal__action" href="#">Modal action 1</a><a class="modal__action" href="#">Modal action 1</a></div>
+				</div>
+			</div>
+			<div class="loading" id="loading" tabindex="0"></div>
+		</main>
+	</body>
+</html>

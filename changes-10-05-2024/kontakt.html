@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="da-DK">
+	<head>
+		<meta charset="utf-8">
+		<title>Mit DOT</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="assets/scripts/load.min.js"></script>
+		<link rel="stylesheet" href="assets/styles/main.min.css">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<script src="assets/scripts/vendors/moment.min.js"></script>
+		<script src="assets/scripts/vendors/pikaday.min.js"></script>
+	</head>
+	<body>
+		<main>
+			<section class="section section--dashboard">
+				<div class="row">
+					<div class="col col--xxs-16 col--m-4 col--l-4 col--xl-3 navigation--container" id="sidenavigation">
+						<div class="navigation"><img class="logo logo--white logo--dashboard" src="assets/images/dot-logo--white.svg" alt="DOT logo">
+							<p class="login-status">Du er logget ind som<span class="login-status__username">Anders Sønderbæk</span></p>
+							<ul class="navigation__list-container">
+								<li class="navigation__list-item"><a class="navigation__list-link navigation__list-link--active" href="dashboard.html">Dashboard</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="opret-foelgeseddel.html">Opret følgeseddel</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="oekonomi.html">Kundecenter</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="ordreoversigt.html">Oversigt</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="downloadcenter.html">Downloadcenter</a></li>
+								<li class="navigation__list-item"><a class="navigation__list-link" href="kontakt.html">Kontakt</a></li>
+							</ul>
+							<ul class="options">
+								<li class="options__item"><a class="options__link" href="hjaelp-til-mit-dot.html"><span class="icon options__icon"><img src="assets/images/icons/questionmark.svg" alt="Questionmark"></span>Hjælp til mit DOT</a></li>
+								<li class="options__item"><a class="options__link" href="indstillinger.html"><span class="icon options__icon"><img src="assets/images/icons/cogwheel.svg" alt="Icon Placeholder"></span>Indstillinger</a></li>
+								<li class="options__item options__item--log-out"><a class="options__link" href="#"><span class="icon options__icon"><img src="assets/images/icons/log-out.svg" alt="Icon Placeholder"></span>Log ud</a></li>
+							</ul>
+						</div>
+					</div>
+					<button class="btn btn--sidenavigation" id="sidenavigationBtn"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+					<div class="col col--xxs-16 col--m-12 col--l-12 col--xl-13">
+						<div class="row row--no-gutters header header--container">
+							<div class="col mobile-subnavigation col--xxs-16"><img class="logo logo--mobile" src="assets/images/dot-logo.svg" alt="DOT logo">
+								<div class="language-select"><span class="icon language-select__icon" id="languageSelect"><img src="assets/images/icons/globe.svg" alt="Globe"></span>
+									<ul class="language-select__list">
+										<li class="language-select__language js-active"><a href="#">DK</a></li>
+										<li class="language-select__language"><a href="#">SE</a></li>
+										<li class="language-select__language"><a href="#">DE</a></li>
+										<li class="language-select__language"><a href="#">EN</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row content content--container">
+							<div class="col col--xxs-16">
+								<h1 class="heading heading--page">Kontakt</h1>
+								<p class="page-description">Hvis der øsnkes at ændre i standardoplysningerne, bedes du kontakte DOT på +45 1234 5678. Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum.</p>
+							</div>
+							<div class="col col--xxs-16">
+								<ul class="tab-navigation">
+									<li class="tab-navigation__item js-active" data-tab="contactpersonTab">Kontaktpersoner</li>
+									<li class="tab-navigation__item" data-tab="phoneTab">Hovednumre</li>
+								</ul>
+							</div>
+							<div class="tab-container col col--xxs-16 js-active" id="contactpersonTab">
+								<div class="row row--no-gutters document-list__header document-list__header--mobile">
+									<div class="col col--xxs-16"><span class="document-list__headline">Intern Kontaktperson</span></div>
+								</div>
+								<div class="row row--no-gutters document-list document-list--contact-persons">
+									<div class="document-list__contact-person row row--no-gutters">
+										<div class="col col--xxs-7 col--m-10"><span class="document-list__text">Rikke Lund Jakobsen</span></div>
+										<div class="col col--xxs-4 col--m-3 text--right"><a class="document-list__link" href="mailto:rlj@dot.dk">rlj@dot.dk</a></div>
+										<div class="col col--xxs-5 col--m-3 text--right"><span class="document-list__link">+45 12 34 56 67</span></div>
+									</div>
+								</div>
+								<div class="row row--no-gutters document-list__header document-list__header--mobile">
+									<div class="col col--xxs-16"><span class="document-list__headline">Ekstern Kontaktperson</span></div>
+								</div>
+								<div class="row row--no-gutters document-list document-list--contact-persons">
+									<div class="document-list__contact-person row row--no-gutters">
+										<div class="col col--xxs-7 col--m-10"><span class="document-list__text">Rikke Lund Jakobsen</span></div>
+										<div class="col col--xxs-4 col--m-3 text--right"><a class="document-list__link" href="mailto:rlj@dot.dk">rlj@dot.dk</a></div>
+										<div class="col col--xxs-5 col--m-3 text--right"><span class="document-list__link">+45 12 34 56 67</span></div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-container col col--xxs-16" id="phoneTab">
+								<div class="row row--no-gutters document-list__header document-list__header--mobile">
+									<div class="col col--xxs-16"><span class="document-list__headline">Landsdele</span></div>
+								</div>
+								<div class="row row--no-gutters document-list document-list--phone-numbers">
+									<div class="document-list__phone-number row row--no-gutters">
+										<div class="col col--xxs-6 col--m-8"><span class="document-list__text">Jylland</span></div>
+										<div class="col col--xxs-10 col--m-8 text--right"><span class="document-list__link">+45 96 280 280</span></div>
+									</div>
+									<div class="document-list__phone-number row row--no-gutters">
+										<div class="col col--xxs-6 col--m-8"><span class="document-list__text">Fyn</span></div>
+										<div class="col col--xxs-10 col--m-8 text--right"><span class="document-list__link">+45 96 280 280</span></div>
+									</div>
+									<div class="document-list__phone-number row row--no-gutters">
+										<div class="col col--xxs-6 col--m-8"><span class="document-list__text">Sjælland</span></div>
+										<div class="col col--xxs-10 col--m-8 text--right"><span class="document-list__link">+45 96 280 280</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="modal" id="modal" tabindex="0">
+				<div class="modal__backdrop"></div>
+				<div class="modal__container">
+					<div class="modal__content"><a class="modal__action modal__action--close" id="modalCloseBtn" href="#"><img src="assets/images/icons/close.svg" alt="Close"></a>
+						<h4 class="modal__headline">Modal header</h4>
+						<p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+					</div>
+					<div class="modal__footer"><a class="modal__action" href="#">Modal action 1</a><a class="modal__action" href="#">Modal action 1</a></div>
+				</div>
+			</div>
+			<div class="loading" id="loading" tabindex="0"></div>
+		</main>
+	</body>
+</html>
