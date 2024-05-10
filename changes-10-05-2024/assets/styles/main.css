@@ -5794,11 +5794,6 @@ textarea::placeholder {
 	margin-top:12px;
 }
 
-.accordion__input--checkbox--container {
-	disply
-	gap: 8px;
-}
-
 .accordion__input--checkbox[type=checkbox] {
 	position: absolute;
 	z-index: -1;
