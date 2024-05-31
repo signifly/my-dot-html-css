@@ -5718,7 +5718,6 @@ Max-width then restricts it to our breakpoints.
 
 .accordion__input[type=text],
 .accordion__input[type=number],
-textarea.accordion__input,
 .accordion__select-container {
 	width: 100%;
 	font-family: "Canaro", sans-serif;
@@ -5733,9 +5732,14 @@ textarea.accordion__input,
 	resize: none;
 }
 
-textarea::placeholder {
-	color: #A8ADB8
-}
+/* Textarea styling */
+/* .accordion__input[type=text]#orderInfoComment,
+.accordion__input[type=text]#productNameComment
+{
+    word-break: break-word;
+    height:100px;
+    width:300px;
+} */
 
 .accordion__input[type=text]::-webkit-input-placeholder,
 .accordion__input[type=number]::-webkit-input-placeholder {
@@ -5779,11 +5783,11 @@ textarea::placeholder {
 .accordion__input--error--message {
 	color: #E1234B;
 	font-size: 13px;
-	display:none;
+	display: none;
 }
 
-.accordion__input--error + .accordion__input--error--message {
-    display: block;
+.accordion__input--error+.accordion__input--error--message {
+	display: block;
 	margin-top: 8px;
 }
 
@@ -5791,7 +5795,7 @@ textarea::placeholder {
 	display: block;
 	color: #70747D;
 	font-size: 13px;
-	margin-top:12px;
+	margin-top: 12px;
 }
 
 .accordion__input--checkbox[type=checkbox] {
