@@ -4634,7 +4634,7 @@ Max-width then restricts it to our breakpoints.
 	margin-bottom: 0.25em;
 	padding: 0;
 	padding-bottom: 0.45em;
-	font-family: "Canaro", sans-serif;
+	font-family: "Switzer";
 	font-weight: 400;
 	font-size: 1rem;
 	letter-spacing: normal;
@@ -5718,7 +5718,7 @@ Max-width then restricts it to our breakpoints.
 	z-index: 100;
 	display: block;
 	zoom: 1;
-	font-family: "Canaro", sans-serif;
+	font-family: "Switzer";
 	color: #2C2A29;
 	border: 0;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
@@ -5768,7 +5768,7 @@ Max-width then restricts it to our breakpoints.
 	width: 100%;
 	margin: 0;
 	padding: 5px;
-	font-family: "Canaro", sans-serif;
+	font-family: "Switzer";
 	font-size: 0.666667rem;
 	line-height: 2;
 	text-align: center;
@@ -5894,7 +5894,7 @@ Max-width then restricts it to our breakpoints.
 .accordion__input[type=number],
 .accordion__select-container {
 	width: 100%;
-	font-family: "Canaro", sans-serif;
+	font-family: "Switzer";
 	border-bottom: 1px solid #535350;
 	color: #111827;
 	font-size: 15px;
@@ -6051,7 +6051,7 @@ Max-width then restricts it to our breakpoints.
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: "Canaro", sans-serif;
+	font-family: "Switzer";
 	font-size: 15px;
 	border: 0;
 	border-radius: 0;
