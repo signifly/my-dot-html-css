@@ -4627,7 +4627,8 @@ Max-width then restricts it to our breakpoints.
 
 @media (min-width: 1024px) {
 	.tab-container.js-active {
-		padding: 0 0.5rem;
+		/* padding: 0 0.5rem; */
+		padding: 0;
 	}
 }
 
@@ -5952,7 +5953,8 @@ Max-width then restricts it to our breakpoints.
 .accordion.js-active .accordion__content {
 	display: flex;
 	padding-left: 32px;
-	row-gap: 32px;
+	/* row-gap: 32px; */
+	row-gap: 20px;
 }
 
 .accordion__header {
