@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="assets/scripts/load.min.js"></script>
 	<link rel="stylesheet" href="assets/styles/main.min.css">
+	<link rel="stylesheet" href="content/migratorcss.css">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<script src="assets/scripts/vendors/moment.min.js"></script>
@@ -94,6 +95,50 @@
 						</div>
 						<!-- Emner-->
 						<div class="tab-container col col--xxs-16 js-active" id="subjectTab">
+
+							<div class="row row--no-gutters">
+
+								<div class="col">
+									<p class="page-upload-text">
+										Vil du tage udgangspunkt i en tidligere ordre eller kladde?
+									</p>
+								</div>
+
+								<div class="col col--xxs-16">
+									<div class="migOrderTopBtnContainer">
+										<span onclick="$('#draftListContainer').toggle();" class="btn btn--tab-navigation migDraftLoadButton">Indlæs kladde</span>
+									</div>
+									<div class="migOrderTopBtnContainer">
+										<span class="btn btn--tab-navigation migImportBtn">Indlæs CSV-fil</span>
+										<input onchange="CSVImport(this);" class="input-importfile migImportBtn" type="file">
+									</div>
+								</div>
+								<div id="draftListContainer" class="col col--xxs-16" style="display: none;">
+									<div class="accordion__select-container">
+										<select class="accordion__select" id="draftList" onchange="draftListSelect();" name="draftList"><option selected="true" value="">Ingen valgt</option><option value="1A3E0FF20B5A464DB3065486E84444E5">Test kran</option></select>
+										<div class="accordion__select-chevron"></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- <div class="row row--no-gutters">
+								<div class="col col--xxs-16">
+									<div class="migOrderTopBtnContainer">
+										<span onclick="$('#draftListContainer').toggle();" class="btn btn--tab-navigation migDraftLoadButton">Indlæs kladde</span>
+									</div>
+									<div class="migOrderTopBtnContainer">
+										<span class="btn btn--tab-navigation migImportBtn">Indlæs CSV-fil</span>
+										<input onchange="CSVImport(this);" class="input-importfile migImportBtn" type="file">
+									</div>
+								</div>
+								<div id="draftListContainer" class="col col--xxs-16" style="display: none;">
+									<div class="accordion__select-container">
+										<select class="accordion__select" id="draftList" onchange="draftListSelect();" name="draftList"><option selected="true" value="">Ingen valgt</option><option value="1A3E0FF20B5A464DB3065486E84444E5">Test kran</option></select>
+										<div class="accordion__select-chevron"></div>
+									</div>
+								</div>
+							</div> -->
+
 							<div class="accordion js-active row row--no-gutters">
 								<div class="accordion__header row row--no-gutters">
 									<div class="col col--xxs-14"><span class="accordion__headline">Ordreinfo</span>
@@ -485,7 +530,7 @@
 										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
 											<input class="accordion__input--checkbox" id="surfaceTreatmentWet"
 												type="checkbox" name="surfaceTreatmentWet">
-											<label class="accordion__label accordion__label--checkbox"
+											<label class="accordion__label accordion__label--checkbox accordion__label--info"
 												for="surfaceTreatmentWet">Vådlakering DS/EN ISO 12944*</label>
 										</div>
 									</div>
@@ -621,6 +666,7 @@
 								</div>
 								<div class="accordion__content row row—no-gutters">
 									<div class="row">
+										<!-- <div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4"> -->
 										<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
 											<label class="accordion__label"
 												for="paintingCorrosionClass">Korrosionsklasse</label>
@@ -636,6 +682,7 @@
 												<div class="accordion__select-chevron"></div>
 											</div>
 										</div>
+										<!-- <div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4"> -->
 										<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
 											<label class="accordion__label" for="paintingRAL">RAL farve</label>
 											<input class="accordion__input" id="paintingRAL" type="text"

@@ -1068,6 +1068,14 @@ textarea {
 	}
 }
 
+
+.col--m-7 {
+	/* Might need to delete */
+	display: flex;
+	flex-direction: row;
+}
+
+
 @media (min-width: 1024px) {
 	.row--m-justify-start {
 		justify-content: flex-start;
@@ -3123,6 +3131,10 @@ textarea {
 	max-width: 50em;
 }
 
+.page-upload-text {
+	font-size: 15px;
+}
+
 .paragraph--small {
 	font-size: 0.875rem;
 }
@@ -3506,7 +3518,7 @@ textarea {
 .accordion__label.accordion__label--checkbox {
 	margin-bottom: 0 !important;
 	position: relative;
-	top: -2px;
+	top: -1px;
 	font-weight: 400;
 }
 
@@ -3524,15 +3536,16 @@ input[type=checkbox] {
 	width: 15px;
 	height: 15px;
 	margin-right: 12px;
+	padding-right: 18px;
 }
 
 input[type=checkbox]:before {
-	content: url("data:image/svg+xml,%3Csvg width='20' height='18' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_dd_52_897)'%3E%3Cpath d='M2 6C2 3.79086 3.79086 2 6 2H14C16.2091 2 18 3.79086 18 6V14C18 16.2091 16.2091 18 14 18H6C3.79086 18 2 16.2091 2 14V6Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_dd_52_897' x='0' y='1' width='20' height='20' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='effect1_dropShadow_52_897'/%3E%3CfeOffset/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.933333 0 0 0 0 0.941176 0 0 0 0 0.956863 0 0 0 1 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_52_897'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='1'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.129412 0 0 0 0 0.129412 0 0 0 0 0.145098 0 0 0 0.2 0'/%3E%3CfeBlend mode='normal' in2='effect1_dropShadow_52_897' result='effect2_dropShadow_52_897'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect2_dropShadow_52_897' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A");
+	content: url('data:image/svg+xml,<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_dd_453_3314)"><path d="M2 6C2 3.79086 3.79086 2 6 2H14C16.2091 2 18 3.79086 18 6V14C18 16.2091 16.2091 18 14 18H6C3.79086 18 2 16.2091 2 14V6Z" fill="white"/></g><defs><filter id="filter0_dd_453_3314" x="0" y="1" width="20" height="20" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_453_3314"/><feOffset/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0.660418 0 0 0 0 0.664405 0 0 0 0 0.67238 0 0 0 1 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_453_3314"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="1"/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0.129412 0 0 0 0 0.129412 0 0 0 0 0.145098 0 0 0 0.2 0"/><feBlend mode="normal" in2="effect1_dropShadow_453_3314" result="effect2_dropShadow_453_3314"/><feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_453_3314" result="shape"/></filter></defs></svg>');
 	position: absolute;
 }
 
 input[type=checkbox]:checked:before {
-	content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 1 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6C2 3.79086 3.79086 2 6 2H14C16.2091 2 18 3.79086 18 6V14C18 16.2091 16.2091 18 14 18H6C3.79086 18 2 16.2091 2 14V6Z' fill='%23330713'/%3E%3Cg filter='url(%23filter0_d_52_901)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.6211 8.13441C14.8274 7.93744 14.8274 7.60802 14.6211 7.41105L14.0119 6.82954C13.8187 6.64512 13.5146 6.64511 13.3214 6.82954L9.34524 10.625C9.15203 10.8094 8.84797 10.8094 8.65476 10.625L6.67857 8.73863C6.48536 8.5542 6.18131 8.5542 5.9881 8.73863L5.3789 9.32014C5.17255 9.51711 5.17255 9.84652 5.3789 10.0435L7.66666 12.2273L8.48214 13.0057C8.77196 13.2823 9.22803 13.2823 9.51785 13.0057L10.3333 12.2273L14.6211 8.13441Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_52_901' x='4.22412' y='6.69116' width='11.5518' height='8.52197' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='0.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_52_901'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_52_901' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A");
+	content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6C2 3.79086 3.79086 2 6 2H14C16.2091 2 18 3.79086 18 6V14C18 16.2091 16.2091 18 14 18H6C3.79086 18 2 16.2091 2 14V6Z' fill='%23330713'/%3E%3Cg filter='url(%23filter0_d_453_3314)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.6211 8.13441C14.8274 7.93744 14.8274 7.60802 14.6211 7.41105L14.0119 6.82954C13.8187 6.64512 13.5146 6.64511 13.3214 6.82954L9.34524 10.625C9.15203 10.8094 8.84797 10.8094 8.65476 10.625L6.67857 8.73863C6.48536 8.5542 6.18131 8.55421 5.9881 8.73863L5.3789 9.32014C5.17255 9.51711 5.17255 9.84652 5.3789 10.0435L7.66666 12.2273L8.48214 13.0057C8.77196 13.2823 9.22803 13.2823 9.51785 13.0057L10.3333 12.2273L14.6211 8.13441Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_453_3314' x='4.22412' y='6.69116' width='11.5518' height='8.52197' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='0.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_453_3314'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_453_3314' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A");
 }
 
 
@@ -5982,7 +5995,7 @@ Max-width then restricts it to our breakpoints.
 
 @media (min-width: 1024px) {
 	.accordion__headline {
-		font-size: 0.777778rem;
+		font-size: 15px;
 	}
 }
 
@@ -5994,12 +6007,26 @@ Max-width then restricts it to our breakpoints.
 	margin-bottom: 12px;
 	font-weight: 600;
 	font-size: 13px;
+	/* font-size: 15px; */
 	text-transform: none;
 	display: inline-flex;
 }
 
+.accordion__label--checkbox {
+	font-size: 15px;
+}
+
 .accordion__label--mandatory {
 	color: var(--color-warning)
+}
+
+.accordion__label--info::after {
+	font-size: 11px;
+	font-family: 'Font Awesome 6 Pro Light';
+	margin-right: 8px;
+	content: '\f05a';
+	align-self: center;
+	margin-left: 4px;
 }
 
 .accordion__expand {
@@ -6007,8 +6034,6 @@ Max-width then restricts it to our breakpoints.
 	justify-content: flex-end;
 	padding-top: 0;
 	cursor: pointer;
-
-
 }
 
 @media (min-width: 1024px) {
@@ -6467,22 +6492,24 @@ Max-width then restricts it to our breakpoints.
 	display: flex;
 	font-size: 15px;
 	border-radius: 8px;
+	margin-bottom: 32px;
 }
 
 .info--container::before {
 	position: relative;
-	width: 22px;
-	height: 22px;
-	margin-top: 1px;
+	width: 15px;
+	height: 15px;
+	margin-top: 3px;
 	display: inline-flex;
 	content: "";
-	margin-right: 8px;
+	margin-right: 12px;
 	background-repeat: no-repeat;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc. --%3E%3Cpath d='M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8V248c0-13.3-10.7-24-24-24H216c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64H216zm40-144a32 32 0 1 0 0-64 32 32 0 1 0 0 64z'/%3E%3C/svg%3E");
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Pro 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path d="M256 32a224 224 0 1 1 0 448 224 224 0 1 1 0-448zm0 480A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM208 352c-8.8 0-16 7.2-16 16s7.2 16 16 16l96 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0 0-112c0-8.8-7.2-16-16-16l-40 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l24 0 0 96-32 0zm48-168a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/></svg>');
 }
 
 .info--container p {
 	padding: 0;
+	width: 100%;
 }
 
 @media print {
