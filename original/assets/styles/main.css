@@ -173,7 +173,7 @@ button {
 
 @font-face {
 	font-family: "Font Awesome 6 Pro Light";
-	src: url("../fonts/Font-Awesome-6-Pro-Light-300.otf") format("otf");
+	src: url("../fonts/Font-Awesome-6-Pro-Light-300.otf") format("opentype");
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
