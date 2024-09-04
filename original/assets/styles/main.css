@@ -6512,6 +6512,79 @@ Max-width then restricts it to our breakpoints.
 	width: 100%;
 }
 
+.file-upload__container {
+	margin-top: 24px;
+	background-color: var(--color-grey-50);
+	border-radius: 8px;
+	border: 1px var(--color-grey-100) solid;
+	padding: 16px 32px;
+}
+
+.file-upload__container .col {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+}
+
+.file-upload__text {
+	font-size: 15px;
+}
+
+.migOrderTopBtnContainer {
+	/* remove styling from migratorcss */
+	float: unset !important;
+	margin: 0 !important;
+}
+
+.migImportBtn,
+.migDraftLoadButton {
+	/* remove styling from migratorcss */
+	/* width: unset !important; */
+	/* margin: 0 !important; */
+}
+
+.migOrderTopBtnContainer {
+	display: grid;
+}
+
+.migOrderTopBtnContainer:first-of-type {
+	margin-left: auto !important;
+}
+
+.migOrderTopBtnContainer input {
+	left: 0;
+	border: 1px solid black;
+	/* opacity: 1; */
+	width: 130px;
+	margin-top: -50px;
+	margin-bottom: 0 !important;
+}
+
+.migOrderTopBtnContainer span {
+	margin-top: 0px;
+	width: 130px;
+	margin-bottom: 0 !important;
+
+	background-color: white;
+	color: #111827;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 24px;
+	padding: 10px 16px;
+	border-radius: 8px;
+	border: 1px solid #e0e0e4;
+}
+
+.migOrderTopBtnContainer select {
+	padding-right: 16px;
+}
+
+.migOrderTopBtnContainer .accordion__select-container {
+	min-width: 130px;
+}
+
+
 @media print {
 
 	/**
