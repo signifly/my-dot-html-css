@@ -82,12 +82,14 @@
 					<div class="row content content--container">
 						<div class="col col--xxs-16">
 							<h1 class="heading heading--page">Opret booking</h1>
-							
+
 							<div class="info--container">
-                                <p id="orderDeadlineInstructions" class="page-description">
-                                    For Jylland: Husk booking inden kl. 15:00 (fredag kl. 13:00) for afhentning på næstkommende tur.<br>For Fyn &amp; Sjælland: Husk booking inden kl. 13:00 (alle hverdage) for afhentning på næstkommende tur.
-                                </p>
-                            </div>
+								<p id="orderDeadlineInstructions" class="page-description">
+									For Jylland: Husk booking inden kl. 15:00 (fredag kl. 13:00) for afhentning på
+									næstkommende tur.<br>For Fyn &amp; Sjælland: Husk booking inden kl. 13:00 (alle
+									hverdage) for afhentning på næstkommende tur.
+								</p>
+							</div>
 
 						</div>
 						<div class="col col--xxs-16">
@@ -102,23 +104,28 @@
 						<div class="tab-container col col--xxs-16 js-active" id="subjectTab">
 
 							<div class="file-upload__container row row--no-gutters">
-                                <div class="col col--xxs-16">
-                                    <span class="file-upload__text">Vil du tage udgangspunkt i en tidligere ordre eller kladde?</span>
+								<div class="col col--xxs-16">
+									<span class="file-upload__text">Vil du tage udgangspunkt i en tidligere ordre eller
+										kladde?</span>
 
 									<div class="migOrderTopBtnContainer">
-                                        <div class="accordion__select-container">
-                                            <select class="accordion__select" id="draftList" onchange="draftListSelect();" name="draftList"><option selected="true" value="">Ingen valgt</option><option value="1A3E0FF20B5A464DB3065486E84444E5">Test kran</option></select>
-                                            <div class="accordion__select-chevron"></div>
-                                        </div>
-                                    </div>
+										<div class="accordion__select-container">
+											<select class="accordion__select" id="draftList"
+												onchange="draftListSelect();" name="draftList">
+												<option selected="true" value="">Ingen valgt</option>
+												<option value="1A3E0FF20B5A464DB3065486E84444E5">Test kran</option>
+											</select>
+											<div class="accordion__select-chevron"></div>
+										</div>
+									</div>
 
-                                    <div class="migOrderTopBtnContainer">
-                                        <span class="btn btn--tab-navigation migImportBtn">Indlæs CSV-fil</span>
-                                        <input onchange="CSVImport(this);" class="input-importfile migImportBtn" type="file">
-                                    </div>
-
-                                </div>
-                            </div>
+									<div class="migOrderTopBtnContainer">
+										<span class="btn btn--tab-navigation migImportBtn">Indlæs CSV-fil</span>
+										<input onchange="CSVImport(this);" class="input-importfile migImportBtn"
+											type="file">
+									</div>
+								</div>
+							</div>
 
 							<div class="accordion js-active row row--no-gutters">
 								<div class="accordion__header row row--no-gutters">
@@ -503,7 +510,8 @@
 										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
 											<input class="accordion__input--checkbox" id="surfaceTreatmentPowder"
 												type="checkbox" name="surfaceTreatmentPowder">
-											<label class="accordion__label accordion__label--checkbox accordion__label--info"
+											<label
+												class="accordion__label accordion__label--checkbox accordion__label--info"
 												for="surfaceTreatmentPowder">Pulverlakering*</label>
 										</div>
 									</div>
@@ -511,7 +519,8 @@
 										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
 											<input class="accordion__input--checkbox" id="surfaceTreatmentWet"
 												type="checkbox" name="surfaceTreatmentWet">
-											<label class="accordion__label accordion__label--checkbox accordion__label--info"
+											<label
+												class="accordion__label accordion__label--checkbox accordion__label--info"
 												for="surfaceTreatmentWet">Vådlakering DS/EN ISO 12944*</label>
 										</div>
 									</div>
@@ -1068,6 +1077,62 @@
 									</div>
 								</div>
 							</div>
+
+							<!-- Godkendt-->
+							<div class="divider"></div>
+							<div class="approval-container">
+
+								<div class="accordion__content row row--no-gutters">
+									<div class="row">
+										<span class="approval-container__header">
+											Acceptér & godkend
+										</span>
+									</div>
+								</div>
+
+								<div class="accordion__content row--no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="approveEmail">Ønsker du at modtage
+												en
+												følgeseddel på email?</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<input class="accordion__input" id="approveEmail" autocomplete="off"
+												maxlength="80" type="text" name="approveEmail"
+												placeholder="eksempel@eksempel.dk">
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="approveEmail">Accepter og
+												godkend</label>
+										</div>
+										<div class="col--flex-1">
+											<div class="approval-container__checkbox-container">
+												<div class="row">
+													<input class="accordion__input--checkbox" id="conditionAccept"
+														type="checkbox" name="conditionAccept">
+													<label class="accordion__label accordion__label--checkbox"
+														for="conditionAccept">Jeg
+														accepterer DOT's salgs- og leveringsbetingelser.</label>
+												</div>
+												<div class="col col--xxs-16 approve-terms-link">
+													<a href="https://dot-nordic.com/dk/download-center"
+														target="_blank">Klik
+														her for
+														at læse salgs- og leveringsbetingelserne.</a>
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+
+
 							<div class="tab-footer row row--no-gutters">
 								<div class="tab-button-navigation row">
 									<div class="col col--xxs-16"><a

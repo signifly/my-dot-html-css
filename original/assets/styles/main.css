@@ -642,6 +642,10 @@ textarea {
 	margin-left: 100%;
 }
 
+.col--flex-1 {
+	flex: 1;
+}
+
 @media (min-width: 375px) {
 	.row--xs-justify-start {
 		justify-content: flex-start;
@@ -6582,6 +6586,61 @@ Max-width then restricts it to our breakpoints.
 
 .migOrderTopBtnContainer .accordion__select-container {
 	min-width: 130px;
+}
+
+@media (max-width: 769px) {
+	.approval-container .col .row:last-of-type {
+		margin-top: 32px;
+	}
+
+	.approval-container .accordion__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+	}
+}
+
+.approval-container .col .row:first-of-type .col:last-of-type {
+	flex-direction: row-reverse;
+}
+
+.approval-container .col .row:first-of-type .col:last-of-type .btn--input-clear {
+	margin-right: 0.5em;
+}
+
+@media (min-width: 1024px) {
+	.approval-container .accordion__content .row {
+		gap: 22px;
+	}
+}
+
+.accordion+.divider {
+	margin-top: 40px;
+}
+
+.approval-container__checkbox-container {
+	background-color: var(--color-grey-50);
+	border-radius: 8px;
+	border: 1px var(--color-grey-100) solid;
+	padding: 16px;
+	width: 100%;
+}
+
+.approval-container__checkbox-container .row {
+	gap: 0 !important;
+	flex-wrap: nowrap;
+}
+
+.approval-container__header {
+	font-size: 32px;
+	margin-top: 40px;
+	margin-bottom: 32px;
+}
+
+.approve-terms-link {
+	margin-top: 4px !important;
+	font-size: 13px;
+	margin-left: 30px !important;
 }
 
 
