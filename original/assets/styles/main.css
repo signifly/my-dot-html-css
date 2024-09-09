@@ -5125,12 +5125,12 @@ Max-width then restricts it to our breakpoints.
 @media (min-width: 1024px) {
 	.document-list__order {
 		padding: 1em 0;
-		border-bottom: 1px solid rgba(112, 112, 112, 0.3);
+		border-bottom: 1px solid var(--color-grey-100);
 	}
 }
 
 .document-list__order>.col {
-	padding: 0 0.5rem;
+	padding: 0 0.5rem 0 0;
 }
 
 .document-list__order-lines {
@@ -5187,19 +5187,19 @@ Max-width then restricts it to our breakpoints.
 .document-list__phone-number,
 .document-list__company-profile-details,
 .document-list__shipping-address {
-	padding: 0;
-	padding-bottom: 0.75em;
-	font-size: 0.777778rem;
-	border-bottom: 1px solid rgba(112, 112, 112, 0.8);
+	padding: 20px 0;
+	font-size: 15px;
+	border-bottom: 1px solid var(--color-grey-100);
 }
 
 .document-list__shipping-address {
 	position: relative;
-	padding-top: 0.5em;
+	padding: 10px 0;
 }
 
 .document-list__shipping-address>.col {
-	padding: 0.5rem 0.5rem 0;
+	/* padding: 0.5rem 0.5rem 0; */
+	padding: 0.5rem 0;
 }
 
 .document-list__file--sub.js-active {
@@ -5234,8 +5234,8 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__file--sub-item.js-active .icon--expand {
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .document-list__file--sub-order {
@@ -5295,8 +5295,8 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__file--sub-list.js-active .icon--expand {
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .document-list__file--sub-list.js-active .document-list__order-lines {
@@ -5385,9 +5385,18 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__action {
-	font-size: 0.777778rem;
-	color: #DB1A3C;
-	cursor: pointer;
+	font-size: 15px;
+	margin-top: 20px;
+	width: 100%;
+
+
+}
+
+.document-list__action::before {
+	font-size: 14px;
+	font-family: 'Font Awesome 6 Pro Light';
+	margin-right: 8px;
+	content: '\2b';
 }
 
 .document-list__link {
@@ -6047,7 +6056,7 @@ Max-width then restricts it to our breakpoints.
 	row-gap: 20px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 769px) {
 	.accordion.js-active .accordion__content {
 		padding-left: 0px;
 	}
@@ -6648,6 +6657,16 @@ Max-width then restricts it to our breakpoints.
 	flex-direction: row;
 	align-items: center;
 	gap: 8px;
+}
+
+@media (max-width: 500px) {
+	.file-upload__container .col {
+		flex-direction: column;
+	}
+
+	.migOrderTopBtnContainer {
+		width: 100%;
+	}
 }
 
 .file-upload__text {
