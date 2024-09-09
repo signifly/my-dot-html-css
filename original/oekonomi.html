@@ -1,273 +1,389 @@
 <!DOCTYPE html>
 <html lang="da-DK">
-	<head>
-		<meta charset="utf-8">
-		<title>Mit DOT</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="assets/scripts/load.min.js"></script>
-		<link rel="stylesheet" href="assets/styles/main.min.css">
-		<link rel="stylesheet" href="content/migratorcss.css">
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<script src="assets/scripts/vendors/moment.min.js"></script>
-		<script src="assets/scripts/vendors/pikaday.min.js"></script>
-	</head>
-	<body>
-		<main>
-			<section class="section section--dashboard">
-				<div class="row">
-					<div class="col col--xxs-16 col--m-4 col--l-4 col--xl-3 navigation--container" id="sidenavigation">
-						<div class="navigation"><img class="logo logo--white logo--dashboard" src="assets/images/dot-logo--white.svg" alt="DOT logo">
-							<p class="login-status">Du er logget ind som<span class="login-status__username">Anders Sønderbæk</span></p>
-							<ul class="navigation__list-container">
-								<li class="navigation__list-item"><a class="navigation__list-link navigation__list-link--active" href="dashboard.html">Dashboard</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="opret-foelgeseddel.html">Opret følgeseddel</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="oekonomi.html">Kundecenter</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="ordreoversigt.html">Oversigt</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="downloadcenter.html">Downloadcenter</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="kontakt.html">Kontakt</a></li>
-							</ul>
-							<ul class="options">
-								<li class="options__item"><a class="options__link" href="hjaelp-til-mit-dot.html"><span class="icon options__icon"><img src="assets/images/icons/questionmark.svg" alt="Questionmark"></span>Hjælp til mit DOT</a></li>
-								<li class="options__item"><a class="options__link" href="indstillinger.html"><span class="icon options__icon"><img src="assets/images/icons/cogwheel.svg" alt="Icon Placeholder"></span>Indstillinger</a></li>
-								<li class="options__item options__item--log-out"><a class="options__link" href="#"><span class="icon options__icon"><img src="assets/images/icons/log-out.svg" alt="Icon Placeholder"></span>Log ud</a></li>
-							</ul>
-						</div>
+
+<head>
+	<meta charset="utf-8">
+	<title>Mit DOT</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="assets/scripts/load.min.js"></script>
+	<link rel="stylesheet" href="assets/styles/main.min.css">
+	<link rel="stylesheet" href="content/migratorcss.css">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<script src="assets/scripts/vendors/moment.min.js"></script>
+	<script src="assets/scripts/vendors/pikaday.min.js"></script>
+</head>
+
+<body>
+	<main>
+		<section class="section section--dashboard">
+			<div class="row">
+				<div class="col col--xxs-16 col--m-4 col--l-4 col--xl-3 navigation--container" id="sidenavigation">
+					<div class="navigation"><img class="logo logo--white logo--dashboard"
+							src="assets/images/dot-logo--white.svg" alt="DOT logo">
+						<p class="login-status">Du er logget ind som<span class="login-status__username">Anders
+								Sønderbæk</span></p>
+						<ul class="navigation__list-container">
+							<li class="navigation__list-item"><a
+									class="navigation__list-link navigation__list-link--active"
+									href="dashboard.html">Dashboard</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link"
+									href="opret-foelgeseddel.html">Opret følgeseddel</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link"
+									href="oekonomi.html">Kundecenter</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link"
+									href="ordreoversigt.html">Oversigt</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link"
+									href="downloadcenter.html">Downloadcenter</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link"
+									href="kontakt.html">Kontakt</a></li>
+						</ul>
+						<ul class="options">
+							<li class="options__item"><a class="options__link" href="hjaelp-til-mit-dot.html"><span
+										class="icon options__icon"><img src="assets/images/icons/questionmark.svg"
+											alt="Questionmark"></span>Hjælp til mit DOT</a></li>
+							<li class="options__item"><a class="options__link" href="indstillinger.html"><span
+										class="icon options__icon"><img src="assets/images/icons/cogwheel.svg"
+											alt="Icon Placeholder"></span>Indstillinger</a></li>
+							<li class="options__item options__item--log-out"><a class="options__link" href="#"><span
+										class="icon options__icon"><img src="assets/images/icons/log-out.svg"
+											alt="Icon Placeholder"></span>Log ud</a></li>
+						</ul>
 					</div>
-					<button class="btn btn--sidenavigation" id="sidenavigationBtn"><span class="line"></span><span class="line"></span><span class="line"></span></button>
-					<div class="col col--xxs-16 col--m-12 col--l-12 col--xl-13">
-						<div class="row row--no-gutters header header--container">
-							<div class="col mobile-subnavigation col--xxs-16"><img class="logo logo--mobile" src="assets/images/dot-logo.svg" alt="DOT logo">
-								<div class="language-select"><span class="icon language-select__icon" id="languageSelect"><img src="assets/images/icons/globe.svg" alt="Globe"></span>
-									<ul class="language-select__list">
-										<li class="language-select__language js-active"><a href="#">DK</a></li>
-										<li class="language-select__language"><a href="#">SE</a></li>
-										<li class="language-select__language"><a href="#">DE</a></li>
-										<li class="language-select__language"><a href="#">EN</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="row content content--container">
-							<div class="col col--xxs-16">
-								<h1 class="heading heading--page">Kundecenter</h1>
-								<p class="page-description">Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum.</p>
-							</div>
-							<div class="col col--xxs-16">
-								<ul class="tab-navigation tab-navigation--justified tab-navigation--swipeable">
-									<li class="tab-navigation__item js-active" data-tab="invoicesTab">Fakturaer</li>
-									<li class="tab-navigation__item" data-tab="creditTab">Kreditnotaer</li>
-									<li class="tab-navigation__item" data-tab="offerTab">Tilbud</li>
-									<li class="tab-navigation__item" data-tab="withdrawalTab">Kontoudtog</li>
+				</div>
+				<button class="btn btn--sidenavigation" id="sidenavigationBtn"><span class="line"></span><span
+						class="line"></span><span class="line"></span></button>
+				<div class="col col--xxs-16 col--m-12 col--l-12 col--xl-13">
+					<div class="row row--no-gutters header header--container">
+						<div class="col mobile-subnavigation col--xxs-16"><img class="logo logo--mobile"
+								src="assets/images/dot-logo.svg" alt="DOT logo">
+							<div class="language-select"><span class="icon language-select__icon"
+									id="languageSelect"><img src="assets/images/icons/globe.svg" alt="Globe"></span>
+								<ul class="language-select__list">
+									<li class="language-select__language js-active"><a href="#">DK</a></li>
+									<li class="language-select__language"><a href="#">SE</a></li>
+									<li class="language-select__language"><a href="#">DE</a></li>
+									<li class="language-select__language"><a href="#">EN</a></li>
 								</ul>
 							</div>
-							<div class="tab-container col col--xxs-16 js-active" id="invoicesTab">
-								<div class="row row--no-gutters filter filter--container">
-									<div class="col col--xxs-8 col--m-3 col--l-2">
-										<div class="filter__item">
-											<label class="filter__label" for="invoicesFilterFromDate">Fra dato</label>
-											<input class="filter__input" id="invoicesFilterFromDate" type="text" name="invoicesFilterFromDate" placeholder="Vælg dato" readonly>
-										</div>
-									</div>
-									<div class="col col--xxs-8 col--m-3 col--l-2">
-										<div class="filter__item">
-											<label class="filter__label" for="invoicesFilterToDate">Til dato</label>
-											<input class="filter__input" id="invoicesFilterToDate" type="text" name="invoicesFilterToDate" placeholder="Vælg dato" readonly>
-										</div>
-									</div>
-									<div class="col col--xxs-16 col--m-6 col--l-4">
-										<div class="filter__item">
-											<label class="filter__label" for="invoicesFilterTextSearch">Tekst</label>
-											<input class="filter__input" id="invoicesFilterTextSearch" type="text" name="invoicesFilterTextSearch" placeholder="Søg evt. på fakturanummer e.l. lign.">
-										</div>
-									</div>
-									<div class="col col--xxs-16 col--m-4">
-										<div class="filter__item">
-											<button class="btn btn--filter-search">Søg</button>
-										</div>
+						</div>
+					</div>
+					<div class="row content content--container">
+						<div class="col col--xxs-16">
+							<h1 class="heading heading--page">Kundecenter</h1>
+							<p class="page-description">Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+								lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum.</p>
+						</div>
+						<div class="col col--xxs-16">
+							<ul class="tab-navigation tab-navigation--justified tab-navigation--swipeable">
+								<li class="tab-navigation__item js-active" data-tab="invoicesTab">Fakturaer</li>
+								<li class="tab-navigation__item" data-tab="creditTab">Kreditnotaer</li>
+								<li class="tab-navigation__item" data-tab="offerTab">Tilbud</li>
+								<li class="tab-navigation__item" data-tab="withdrawalTab">Kontoudtog</li>
+							</ul>
+						</div>
+						<div class="tab-container col col--xxs-16 js-active" id="invoicesTab">
+							<div class="row row--no-gutters filter filter--container">
+								<div class="col col--xxs-8 col--m-4 col--l-3">
+									<div class="filter__item">
+										<input class="filter__input" id="invoicesFilterFromDate" type="text"
+											name="invoicesFilterFromDate" placeholder="Vælg fra dato" readonly>
+										<div class="accordion__select-chevron"></div>
 									</div>
 								</div>
-								<div class="row row--no-gutters document-list__header document-list__header--justified">
-									<div class="document-list__icon-header col col--xxs-1"></div>
-									<div class="col col--xxs-3"><span class="document-list__headline">Fakturanummer</span></div>
-									<div class="col col--xxs-3"><span class="document-list__headline">Udstedt</span></div>
-									<div class="col col--xxs-3"><span class="document-list__headline">Forfaldsdato</span></div>
-									<div class="col col--xxs-3"><span class="document-list__headline">Status</span></div>
-									<div class="col col--xxs-3"></div>
+								<div class="col col--xxs-8 col--m-4 col--l-3">
+									<div class="filter__item">
+										<input class="filter__input" id="invoicesFilterToDate" type="text"
+											name="invoicesFilterToDate" placeholder="Vælg til dato" readonly>
+										<div class="accordion__select-chevron"></div>
+									</div>
 								</div>
-								<div class="row row--no-gutters document-list">
-									<div class="document-list__file row row--no-gutters">
-										<div class="document-list__icon-container document-list__icon-container--invoices col col--m-1 col--no-gutters"><img src="assets/images/icons/pdf.svg" alt="PDF file"></div>
-										<div class="document-list__invoice-number col col--xxs-8 col--m-3"><span class="document-list__text document-list__text--bold">#123456678</span></div>
-										<div class="document-list__invoice-issued col col--m-3"><span class="document-list__text">22.12.2018</span></div>
-										<div class="document-list__invoice-due-date col col--xxs-16 col--m-3"><span class="document-list__text document-list__text--invoice-due-date">Forfaldsdato</span><span class="document-list__text">26.08.2019</span></div>
-										<div class="document-list__invoice-status col col--xxs-8 col--m-3"><span class="document-list__text">Afventer betaling</span></div>
-										<div class="document-list__invoice-file-link col col--m-3"><a class="document-list__link" href="#">Se dokument</a></div>
+								<div class="col col--xxs-16 col--m-6 col--l-5">
+									<div class="filter__item">
+										<!-- <label class="filter__label" for="invoicesFilterTextSearch">Tekst</label> -->
+										<input class="filter__input" id="invoicesFilterTextSearch" type="text"
+											name="invoicesFilterTextSearch"
+											placeholder="Søg evt. på fakturanummer e.l. lign.">
+									</div>
+								</div>
+								<div class="col col--xxs-16 col--m-1">
+									<button class="btn btn--filter-search btn--primary">Søg</button>
+								</div>
+							</div>
+
+							<div class="row row--no-gutters document-list__header document-list__header--justified">
+								<div class="document-list__icon-header col col--xxs-1"></div>
+								<div class="col col--xxs-3"><span class="document-list__headline">Fakturanummer</span>
+								</div>
+								<div class="col col--xxs-3"><span class="document-list__headline">Udstedt</span></div>
+								<div class="col col--xxs-3"><span class="document-list__headline">Forfaldsdato</span>
+								</div>
+								<div class="col col--xxs-3"><span class="document-list__headline">Status</span></div>
+								<div class="col col--xxs-3"></div>
+							</div>
+							<div class="row row--no-gutters document-list">
+								<div class="document-list__file row row--no-gutters">
+									<div
+										class="document-list__icon-container document-list__icon-container--invoices col col--m-1 col--no-gutters">
+										<img src="assets/images/icons/pdf.svg" alt="PDF file">
+									</div>
+									<div class="document-list__invoice-number col col--xxs-8 col--m-3"><span
+											class="document-list__text document-list__text--bold">#123456678</span>
+									</div>
+									<div class="document-list__invoice-issued col col--m-3"><span
+											class="document-list__text">22.12.2018</span></div>
+									<div class="document-list__invoice-due-date col col--xxs-16 col--m-3"><span
+											class="document-list__text document-list__text--invoice-due-date">Forfaldsdato</span><span
+											class="document-list__text">26.08.2019</span></div>
+									<div class="document-list__invoice-status col col--xxs-8 col--m-3"><span
+											class="document-list__text">Afventer betaling</span></div>
+									<div class="document-list__invoice-file-link col col--m-3"><a
+											class="document-list__link" href="#">Se dokument</a></div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-container col col--xxs-16" id="creditTab">
+							<div class="row row--no-gutters filter filter--container">
+								<div class="col col--xxs-8 col--m-3 col--l-2">
+									<div class="filter__item">
+										<label class="filter__label" for="creditFilterFromDate">Fra dato</label>
+										<input class="filter__input" id="creditFilterFromDate" type="text"
+											name="creditFilterFromDate" placeholder="Vælg dato" readonly>
+									</div>
+								</div>
+								<div class="col col--xxs-8 col--m-3 col--l-2">
+									<div class="filter__item">
+										<label class="filter__label" for="creditFilterToDate">Til dato</label>
+										<input class="filter__input" id="creditFilterToDate" type="text"
+											name="creditFilterToDate" placeholder="Vælg dato" readonly>
+									</div>
+								</div>
+								<div class="col col--xxs-16 col--m-6 col--l-4">
+									<div class="filter__item">
+										<label class="filter__label" for="creditFilterTextSearch">Tekst</label>
+										<input class="filter__input" id="creditFilterTextSearch" type="text"
+											name="creditFilterTextSearch"
+											placeholder="Søg evt. på fakturanummer e.l. lign.">
+									</div>
+								</div>
+								<div class="col col--xxs-16 col--m-4">
+									<div class="filter__item">
+										<button class="btn btn--filter-search btn--primary">Søg</button>
 									</div>
 								</div>
 							</div>
-							<div class="tab-container col col--xxs-16" id="creditTab">
-								<div class="row row--no-gutters filter filter--container">
-									<div class="col col--xxs-8 col--m-3 col--l-2">
-										<div class="filter__item">
-											<label class="filter__label" for="creditFilterFromDate">Fra dato</label>
-											<input class="filter__input" id="creditFilterFromDate" type="text" name="creditFilterFromDate" placeholder="Vælg dato" readonly>
-										</div>
+							<div class="row row--no-gutters document-list__header document-list__header--justified">
+								<div class="document-list__icon-header col col--xxs-1"></div>
+								<div class="col col--xxs-4"><span
+										class="document-list__headline">Kreditnotanummer</span></div>
+								<div class="col col--xxs-8"><span class="document-list__headline">Udstedt</span></div>
+								<div class="col col--xxs-3"></div>
+							</div>
+							<div class="row row--no-gutters document-list">
+								<div class="row row--no-gutters document-list__file">
+									<div
+										class="document-list__icon-container document-list__icon-container--credit col col--m-1 col--no-gutters">
+										<img src="assets/images/icons/pdf.svg" alt="PDF file">
 									</div>
-									<div class="col col--xxs-8 col--m-3 col--l-2">
-										<div class="filter__item">
-											<label class="filter__label" for="creditFilterToDate">Til dato</label>
-											<input class="filter__input" id="creditFilterToDate" type="text" name="creditFilterToDate" placeholder="Vælg dato" readonly>
-										</div>
+									<div class="document-list__credit-number col col--xxs-16 col--m-4"><span
+											class="document-list__text document-list__text--bold">#123456678</span>
 									</div>
-									<div class="col col--xxs-16 col--m-6 col--l-4">
-										<div class="filter__item">
-											<label class="filter__label" for="creditFilterTextSearch">Tekst</label>
-											<input class="filter__input" id="creditFilterTextSearch" type="text" name="creditFilterTextSearch" placeholder="Søg evt. på fakturanummer e.l. lign.">
-										</div>
-									</div>
-									<div class="col col--xxs-16 col--m-4">
-										<div class="filter__item">
-											<button class="btn btn--filter-search">Søg</button>
-										</div>
+									<div class="document-list__credit-issued col col--xxs-16 col--m-8"><span
+											class="document-list__text document-list__text--credit-issued">Modtaget</span><span
+											class="document-list__text">22.12.2018</span></div>
+									<div class="document-list__credit-file-link col col--m-3"><a
+											class="document-list__link" href="#">Se dokument</a></div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-container col col--xxs-16" id="offerTab">
+							<div class="row row--no-gutters filter filter--container">
+								<div class="col col--xxs-8 col--m-3 col--l-2">
+									<div class="filter__item">
+										<label class="filter__label" for="offerFilterFromDate">Fra dato</label>
+										<input class="filter__input" id="offerFilterFromDate" type="text"
+											name="offerFilterFromDate" placeholder="Vælg dato" readonly>
 									</div>
 								</div>
-								<div class="row row--no-gutters document-list__header document-list__header--justified">
-									<div class="document-list__icon-header col col--xxs-1"></div>
-									<div class="col col--xxs-4"><span class="document-list__headline">Kreditnotanummer</span></div>
-									<div class="col col--xxs-8"><span class="document-list__headline">Udstedt</span></div>
-									<div class="col col--xxs-3"></div>
+								<div class="col col--xxs-8 col--m-3 col--l-2">
+									<div class="filter__item">
+										<label class="filter__label" for="offerFilterToDate">Til dato</label>
+										<input class="filter__input" id="offerFilterToDate" type="text"
+											name="offerFilterToDate" placeholder="Vælg dato" readonly>
+									</div>
 								</div>
-								<div class="row row--no-gutters document-list">
-									<div class="row row--no-gutters document-list__file">
-										<div class="document-list__icon-container document-list__icon-container--credit col col--m-1 col--no-gutters"><img src="assets/images/icons/pdf.svg" alt="PDF file"></div>
-										<div class="document-list__credit-number col col--xxs-16 col--m-4"><span class="document-list__text document-list__text--bold">#123456678</span></div>
-										<div class="document-list__credit-issued col col--xxs-16 col--m-8"><span class="document-list__text document-list__text--credit-issued">Modtaget</span><span class="document-list__text">22.12.2018</span></div>
-										<div class="document-list__credit-file-link col col--m-3"><a class="document-list__link" href="#">Se dokument</a></div>
+								<div class="col col--xxs-16 col--m-6 col--l-4">
+									<div class="filter__item">
+										<label class="filter__label" for="offerFilterTextSearch">Tekst</label>
+										<input class="filter__input" id="offerFilterTextSearch" type="text"
+											name="offerFilterTextSearch"
+											placeholder="Søg evt. på fakturanummer e.l. lign.">
+									</div>
+								</div>
+								<div class="col col--xxs-16 col--m-4">
+									<div class="filter__item">
+										<button class="btn btn--filter-search">Søg</button>
 									</div>
 								</div>
 							</div>
-							<div class="tab-container col col--xxs-16" id="offerTab">
-								<div class="row row--no-gutters filter filter--container">
-									<div class="col col--xxs-8 col--m-3 col--l-2">
-										<div class="filter__item">
-											<label class="filter__label" for="offerFilterFromDate">Fra dato</label>
-											<input class="filter__input" id="offerFilterFromDate" type="text" name="offerFilterFromDate" placeholder="Vælg dato" readonly>
-										</div>
-									</div>
-									<div class="col col--xxs-8 col--m-3 col--l-2">
-										<div class="filter__item">
-											<label class="filter__label" for="offerFilterToDate">Til dato</label>
-											<input class="filter__input" id="offerFilterToDate" type="text" name="offerFilterToDate" placeholder="Vælg dato" readonly>
-										</div>
-									</div>
-									<div class="col col--xxs-16 col--m-6 col--l-4">
-										<div class="filter__item">
-											<label class="filter__label" for="offerFilterTextSearch">Tekst</label>
-											<input class="filter__input" id="offerFilterTextSearch" type="text" name="offerFilterTextSearch" placeholder="Søg evt. på fakturanummer e.l. lign.">
-										</div>
-									</div>
-									<div class="col col--xxs-16 col--m-4">
-										<div class="filter__item">
-											<button class="btn btn--filter-search">Søg</button>
-										</div>
-									</div>
+							<div class="row row--no-gutters document-list__header document-list__header--justified">
+								<div class="document-list__icon-header col col--xxs-1"></div>
+								<div class="col col--xxs-4"><span class="document-list__headline">Tilbudsnummer</span>
 								</div>
-								<div class="row row--no-gutters document-list__header document-list__header--justified">
-									<div class="document-list__icon-header col col--xxs-1"></div>
-									<div class="col col--xxs-4"><span class="document-list__headline">Tilbudsnummer</span></div>
-									<div class="col col--xxs-4"><span class="document-list__headline">Oprettet</span></div>
-									<div class="col col--xxs-4"><span class="document-list__headline">Sælger/kontakt</span></div>
-									<div class="col col--xxs-3"><span class="document-list__headline"></span></div>
+								<div class="col col--xxs-4"><span class="document-list__headline">Oprettet</span></div>
+								<div class="col col--xxs-4"><span class="document-list__headline">Sælger/kontakt</span>
 								</div>
-								<div class="row row--no-gutters document-list">
-									<div class="row row--no-gutters document-list__file document-list__file--sub">
-										<div class="document-list__icon-container document-list__icon-container--offer col col--m-1 col--no-gutters"><img src="assets/images/icons/pdf.svg" alt="PDF file"></div>
-										<div class="document-list__offer-number col col--xxs-10 col--m-4"><span class="document-list__text document-list__text--bold">#123456678</span></div>
-										<div class="document-list__offer-issued col col--xxs-10 col--m-4"><span class="document-list__text">22.12.2018</span></div>
-										<div class="document-list__offer-seller col col--xxs-1 col--m-4"><span class="document-list__text">Michael Sigvardt</span></div>
-										<div class="document-list__offer-expand col col--xxs-6 col--m-3"><span class="document-list__link document-list__link--expand"><span class="icon icon--expand"></span></span></div>
-										<div class="row row--no-gutters document-list__header document-list__header--sub">
-											<div class="document-list__icon-header col col--xxs-1 col--xxs-offset-2"></div>
-											<div class="col col--xxs-3"><span class="document-list__headline document-list__headline--sub">Dokument</span></div>
-											<div class="col col--xxs-3"><span class="document-list__headline document-list__headline--sub">Dato</span></div>
-											<div class="col col--xxs-2"><span class="document-list__headline document-list__headline--sub">Nummer</span></div>
-											<div class="col col--xxs-4"></div>
+								<div class="col col--xxs-3"><span class="document-list__headline"></span></div>
+							</div>
+							<div class="row row--no-gutters document-list">
+								<div class="row row--no-gutters document-list__file document-list__file--sub">
+									<div
+										class="document-list__icon-container document-list__icon-container--offer col col--m-1 col--no-gutters">
+										<img src="assets/images/icons/pdf.svg" alt="PDF file">
+									</div>
+									<div class="document-list__offer-number col col--xxs-10 col--m-4"><span
+											class="document-list__text document-list__text--bold">#123456678</span>
+									</div>
+									<div class="document-list__offer-issued col col--xxs-10 col--m-4"><span
+											class="document-list__text">22.12.2018</span></div>
+									<div class="document-list__offer-seller col col--xxs-1 col--m-4"><span
+											class="document-list__text">Michael Sigvardt</span></div>
+									<div class="document-list__offer-expand col col--xxs-6 col--m-3"><span
+											class="document-list__link document-list__link--expand"><span
+												class="icon icon--expand"></span></span></div>
+									<div class="row row--no-gutters document-list__header document-list__header--sub">
+										<div class="document-list__icon-header col col--xxs-1 col--xxs-offset-2"></div>
+										<div class="col col--xxs-3"><span
+												class="document-list__headline document-list__headline--sub">Dokument</span>
 										</div>
-										<div class="row row--no-gutters document-list__file document-list__file--sub-item">
-											<div class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2"><img src="assets/images/icons/pdf.svg" alt="PDF file"></div>
-											<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span class="document-list__text document-list__text--bold">Tilbud</span></div>
-											<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span class="document-list__text">25.06.2018</span></div>
-											<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span class="document-list__text">#12345678</span></div>
-											<div class="document-list__offer-sub-link col col--m-4"><a class="document-list__link" href="#">Se dokument</a></div>
+										<div class="col col--xxs-3"><span
+												class="document-list__headline document-list__headline--sub">Dato</span>
 										</div>
-										<div class="row row--no-gutters document-list__file document-list__file--sub-item">
-											<div class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2"><img src="assets/images/icons/pdf.svg" alt="PDF file"></div>
-											<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span class="document-list__text document-list__text--bold">Faktura</span></div>
-											<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span class="document-list__text">25.06.2018</span></div>
-											<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span class="document-list__text">#12345678</span></div>
-											<div class="document-list__offer-sub-link col col--m-4"><a class="document-list__link" href="#">Se dokument</a></div>
+										<div class="col col--xxs-2"><span
+												class="document-list__headline document-list__headline--sub">Nummer</span>
 										</div>
-										<div class="row row--no-gutters document-list__file document-list__file--sub-item">
-											<div class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2"><img src="assets/images/icons/pdf.svg" alt="PDF file"></div>
-											<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span class="document-list__text document-list__text--bold">Følgeseddel</span></div>
-											<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span class="document-list__text">25.06.2018</span></div>
-											<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span class="document-list__text">#12345678</span></div>
-											<div class="document-list__offer-sub-link col col--m-4"><a class="document-list__link" href="#">Se dokument</a></div>
+										<div class="col col--xxs-4"></div>
+									</div>
+									<div class="row row--no-gutters document-list__file document-list__file--sub-item">
+										<div
+											class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2">
+											<img src="assets/images/icons/pdf.svg" alt="PDF file">
 										</div>
-										<div class="row row--no-gutters document-list__file document-list__file--sub-item">
-											<div class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2"><img src="assets/images/icons/pdf.svg" alt="PDF file"></div>
-											<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span class="document-list__text document-list__text--bold">Målerapport</span></div>
-											<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span class="document-list__text">25.06.2018</span></div>
-											<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span class="document-list__text">#12345678</span></div>
-											<div class="document-list__offer-sub-link col col--m-4"><a class="document-list__link" href="#">Se dokument</a></div>
+										<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span
+												class="document-list__text document-list__text--bold">Tilbud</span>
 										</div>
-										<div class="row row--no-gutters document-list__file document-list__file--sub-item">
-											<div class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2"><img src="assets/images/icons/pdf.svg" alt="PDF file"></div>
-											<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span class="document-list__text document-list__text--bold">P&Q rapport</span></div>
-											<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span class="document-list__text">25.06.2018</span></div>
-											<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span class="document-list__text">#12345678</span></div>
-											<div class="document-list__offer-sub-link col col--m-4"><a class="document-list__link" href="#">Se dokument</a></div>
+										<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span
+												class="document-list__text">25.06.2018</span></div>
+										<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span
+												class="document-list__text">#12345678</span></div>
+										<div class="document-list__offer-sub-link col col--m-4"><a
+												class="document-list__link" href="#">Se dokument</a></div>
+									</div>
+									<div class="row row--no-gutters document-list__file document-list__file--sub-item">
+										<div
+											class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2">
+											<img src="assets/images/icons/pdf.svg" alt="PDF file">
 										</div>
+										<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span
+												class="document-list__text document-list__text--bold">Faktura</span>
+										</div>
+										<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span
+												class="document-list__text">25.06.2018</span></div>
+										<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span
+												class="document-list__text">#12345678</span></div>
+										<div class="document-list__offer-sub-link col col--m-4"><a
+												class="document-list__link" href="#">Se dokument</a></div>
+									</div>
+									<div class="row row--no-gutters document-list__file document-list__file--sub-item">
+										<div
+											class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2">
+											<img src="assets/images/icons/pdf.svg" alt="PDF file">
+										</div>
+										<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span
+												class="document-list__text document-list__text--bold">Følgeseddel</span>
+										</div>
+										<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span
+												class="document-list__text">25.06.2018</span></div>
+										<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span
+												class="document-list__text">#12345678</span></div>
+										<div class="document-list__offer-sub-link col col--m-4"><a
+												class="document-list__link" href="#">Se dokument</a></div>
+									</div>
+									<div class="row row--no-gutters document-list__file document-list__file--sub-item">
+										<div
+											class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2">
+											<img src="assets/images/icons/pdf.svg" alt="PDF file">
+										</div>
+										<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span
+												class="document-list__text document-list__text--bold">Målerapport</span>
+										</div>
+										<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span
+												class="document-list__text">25.06.2018</span></div>
+										<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span
+												class="document-list__text">#12345678</span></div>
+										<div class="document-list__offer-sub-link col col--m-4"><a
+												class="document-list__link" href="#">Se dokument</a></div>
+									</div>
+									<div class="row row--no-gutters document-list__file document-list__file--sub-item">
+										<div
+											class="document-list__icon-container document-list__icon-container--offer col col--xxs-1 col--xxs-offset-2">
+											<img src="assets/images/icons/pdf.svg" alt="PDF file">
+										</div>
+										<div class="document-list__offer-sub-type col col--xxs-16 col--m-3"><span
+												class="document-list__text document-list__text--bold">P&Q rapport</span>
+										</div>
+										<div class="document-list__offer-sub-date col col--xxs-8 col--m-3"><span
+												class="document-list__text">25.06.2018</span></div>
+										<div class="document-list__offer-sub-number col col--xxs-8 col--m-2"><span
+												class="document-list__text">#12345678</span></div>
+										<div class="document-list__offer-sub-link col col--m-4"><a
+												class="document-list__link" href="#">Se dokument</a></div>
 									</div>
 								</div>
 							</div>
-							<div class="tab-container col col--xxs-16" id="withdrawalTab">
-								<div class="row row--no-gutters filter filter--container">
-									<div class="col col--xxs-8 col--m-3 col--l-2">
-										<div class="filter__item">
-											<label class="filter__label" for="withdrawalFilterFromDate">Fra dato</label>
-											<input class="filter__input" id="withdrawalFilterFromDate" type="text" name="withdrawalFilterFromDate" placeholder="Vælg dato" readonly>
-										</div>
+						</div>
+						<div class="tab-container col col--xxs-16" id="withdrawalTab">
+							<div class="row row--no-gutters filter filter--container">
+								<div class="col col--xxs-8 col--m-3 col--l-2">
+									<div class="filter__item">
+										<label class="filter__label" for="withdrawalFilterFromDate">Fra dato</label>
+										<input class="filter__input" id="withdrawalFilterFromDate" type="text"
+											name="withdrawalFilterFromDate" placeholder="Vælg dato" readonly>
 									</div>
-									<div class="col col--xxs-8 col--m-3 col--l-2">
-										<div class="filter__item">
-											<label class="filter__label" for="withdrawalFilterToDate">Til dato</label>
-											<input class="filter__input" id="withdrawalFilterToDate" type="text" name="withdrawalFilterToDate" placeholder="Vælg dato" readonly>
-										</div>
+								</div>
+								<div class="col col--xxs-8 col--m-3 col--l-2">
+									<div class="filter__item">
+										<label class="filter__label" for="withdrawalFilterToDate">Til dato</label>
+										<input class="filter__input" id="withdrawalFilterToDate" type="text"
+											name="withdrawalFilterToDate" placeholder="Vælg dato" readonly>
 									</div>
-									<div class="col col--xxs-16 col--m-4">
-										<div class="filter__item">
-											<button class="btn btn--filter-search">Generer kontoudtog</button>
-										</div>
+								</div>
+								<div class="col col--xxs-16 col--m-4">
+									<div class="filter__item">
+										<button class="btn btn--filter-search">Generer kontoudtog</button>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-			<div class="modal" id="modal" tabindex="0">
-				<div class="modal__backdrop"></div>
-				<div class="modal__container">
-					<div class="modal__content"><a class="modal__action modal__action--close" id="modalCloseBtn" href="#"><img src="assets/images/icons/close.svg" alt="Close"></a>
-						<h4 class="modal__headline">Modal header</h4>
-						<p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-					</div>
-					<div class="modal__footer"><a class="modal__action" href="#">Modal action 1</a><a class="modal__action" href="#">Modal action 1</a></div>
-				</div>
 			</div>
-			<div class="loading" id="loading" tabindex="0"></div>
-		</main>
-	</body>
+		</section>
+		<div class="modal" id="modal" tabindex="0">
+			<div class="modal__backdrop"></div>
+			<div class="modal__container">
+				<div class="modal__content"><a class="modal__action modal__action--close" id="modalCloseBtn"
+						href="#"><img src="assets/images/icons/close.svg" alt="Close"></a>
+					<h4 class="modal__headline">Modal header</h4>
+					<p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore</p>
+				</div>
+				<div class="modal__footer"><a class="modal__action" href="#">Modal action 1</a><a class="modal__action"
+						href="#">Modal action 1</a></div>
+			</div>
+		</div>
+		<div class="loading" id="loading" tabindex="0"></div>
+	</main>
+</body>
+
 </html>

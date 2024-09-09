@@ -40,6 +40,10 @@
 									href="downloadcenter.html">Download center</a></li>
 							<li class="navigation__list-item"><a class="navigation__list-link icon--contact"
 									href="kontakt.html">Kontakt</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--graph"
+									onclick="showPage('pageZinkGraph');">TEST ZINK</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--graph"
+									onclick="showPage('pageEnvGraph');">TEST MILJØ</a></li>
 
 							<li class="navigation__list-item"><a class="navigation__list-link" id="new-update-infolink"
 									target="_blank">
@@ -445,16 +449,6 @@
 									<div class="row">
 										<div
 											class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
-											<input class="accordion__input--checkbox" id="productNamePackAsShown"
-												type="checkbox" name="productNamePackAsShown">
-											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
-												for="productNamePackAsShown">Pakkes som vist på billede</label>
-										</div>
-									</div>
-									<div class="row">
-										<div
-											class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
 											<input class="accordion__input--checkbox" id="productNameAddNumber"
 												type="checkbox" name="productNameAddNumber">
 											<label class="accordion__label accordion__label--checkbox"
@@ -465,12 +459,18 @@
 							</div>
 							<div class="tab-footer row row--no-gutters">
 								<div class="accordion__add-more row">
-									<div class="col col--xxs-16 text--right"><span
-											class="accordion__link accordion__link--create">+ Tilføj nyt emne</span>
+									<div class="col col--xxs-16 text--center"><span
+											class="accordion__link accordion__link--create">Tilføj nyt emne</span>
 									</div>
 								</div>
+
 								<div class="tab-button-navigation row">
-									<div class="col col--xxs-16"><a class="btn btn--next btn--tab-navigation">Næste</a>
+									<div class="col col--xxs-16">
+										<a id="btn-order-draft-save" class="btn btn--tab-navigation"
+											onclick="draftSave();">Gem kladde</a>
+
+										<a class="btn btn--next btn--tab-navigation"
+											onclick="orderPrevNext(this, validateItems);">Næste</a>
 									</div>
 								</div>
 							</div>
@@ -735,23 +735,32 @@
 												<div class="accordion__select-chevron"></div>
 											</div>
 											<br>
-											<input class="accordion__input--checkbox" id="traceabilityZinc"
-												data-draft="checkbox" type="checkbox" name="traceabilityZinc">
-											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
-												for="traceabilityZinc">Ønsker måling udført efter varmforzinking</label>
-											<input class="accordion__input--checkbox" id="traceabilityPainting"
-												data-draft="checkbox" type="checkbox" name="traceabilityPainting">
-											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
-												for="traceabilityPainting">Ønsker lagtykkelsesmåling efter
-												maling</label>
-											<input class="accordion__input--checkbox" id="traceabilityDensity"
-												data-draft="checkbox" type="checkbox" name="traceabilityDensity">
-											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
-												for="traceabilityDensity">Ønsker dokumentation for lagtykkelsen
-												tilsendt</label>
+											<div class="row">
+												<input class="accordion__input--checkbox" id="traceabilityZinc"
+													data-draft="checkbox" type="checkbox" name="traceabilityZinc">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
+													for="traceabilityZinc">Ønsker måling udført efter
+													varmforzinking</label>
+											</div>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="traceabilityPainting"
+													data-draft="checkbox" type="checkbox" name="traceabilityPainting">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
+													for="traceabilityPainting">Ønsker lagtykkelsesmåling efter
+													maling</label>
+											</div>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="traceabilityDensity"
+													data-draft="checkbox" type="checkbox" name="traceabilityDensity">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
+													for="traceabilityDensity">Ønsker dokumentation for lagtykkelsen
+													tilsendt</label>
+											</div>
 
 										</div>
 										<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
@@ -789,6 +798,24 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="tab-footer row row--no-gutters">
+
+								<div class="tab-button-navigation row">
+									<div class="col col--xxs-16">
+
+										<a onclick="orderPrevNext(this);"
+											class="btn btn--prev btn--tab-navigation">Forrige</a>
+
+										<a id="btn-order-draft-save" class="btn btn--tab-navigation"
+											onclick="draftSave();">Gem kladde</a>
+
+										<a class="btn btn--next btn--tab-navigation"
+											onclick="orderPrevNext(this, validateItems);">Næste</a>
+
+									</div>
+								</div>
+							</div>
 						</div>
 						<!-- Adresser-->
 						<div class="tab-container col col--xxs-16" id="adressesTab">
@@ -800,6 +827,7 @@
 												class="icon icon--expand"></span></span></div>
 								</div>
 								<div class="accordion__content row row—no-gutters">
+
 									<div class="row">
 										<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
 											<label class="accordion__label" for="retrievalDate">Afhentningsdato</label>
@@ -833,16 +861,23 @@
 											<p class="paragraph--italic paragraph--small paragraph--accordion">
 												eller&nbsp;<span class="accordion__link" id="showRetrievalAddress">+
 													indtast adresse</span></p>
-											<input class="accordion__input--checkbox" id="customerDeliversOrder"
-												type="checkbox" name="customerDeliversOrder">
-											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
-												for="customerDeliversOrder">Vi leverer selv ordren til DOT</label>
-											<input class="accordion__input--checkbox" id="craneAtRetrieval"
-												type="checkbox" name="craneAtRetrieval">
-											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
-												for="craneAtRetrieval">Kran ved afhenting*</label>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="customerDeliversOrder"
+													type="checkbox" name="customerDeliversOrder">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+													for="customerDeliversOrder">Vi leverer selv ordren til DOT</label>
+											</div>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="craneAtRetrieval"
+													type="checkbox" name="craneAtRetrieval">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+													for="craneAtRetrieval">Kran ved afhenting*</label>
+											</div>
+
 										</div>
 										<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
 											<label class="accordion__label" for="deliveryAddress">Vælg leveringssadresse
@@ -863,17 +898,24 @@
 											<p class="paragraph--italic paragraph--small paragraph--accordion">
 												eller&nbsp;<span class="accordion__link" id="showDeliveryAddress">+
 													indtast adresse</span></p>
-											<input class="accordion__input--checkbox" id="customerRetrievesOrder"
-												type="checkbox" name="customerRetrievesOrder">
-											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
-												for="customerRetrievesOrder">Vi afhenter selv ordren ved DOT</label>
-											<input class="accordion__input--checkbox" id="craneAtDelivery"
-												type="checkbox" name="craneAtDelivery">
-											<label
-												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
-												for="craneAtDelivery">Kran ved levering*</label>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="customerRetrievesOrder"
+													type="checkbox" name="customerRetrievesOrder">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+													for="customerRetrievesOrder">Vi afhenter selv ordren ved DOT</label>
+											</div>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="craneAtDelivery"
+													type="checkbox" name="craneAtDelivery">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+													for="craneAtDelivery">Kran ved levering*</label>
+											</div>
 										</div>
+
 									</div>
 									<div class="row">
 										<div class="col col--xxs-16">
@@ -884,10 +926,20 @@
 								</div>
 							</div>
 							<div class="tab-footer row row--no-gutters">
+
 								<div class="tab-button-navigation row">
-									<div class="col col--xxs-16"><a
-											class="btn btn--prev btn--tab-navigation">Forrige</a><a
-											class="btn btn--next btn--tab-navigation">Næste</a></div>
+									<div class="col col--xxs-16">
+
+										<a onclick="orderPrevNext(this);"
+											class="btn btn--prev btn--tab-navigation">Forrige</a>
+
+										<a id="btn-order-draft-save" class="btn btn--tab-navigation"
+											onclick="draftSave();">Gem kladde</a>
+
+										<a class="btn btn--next btn--tab-navigation"
+											onclick="orderPrevNext(this, validateItems);">Næste</a>
+
+									</div>
 								</div>
 							</div>
 						</div>

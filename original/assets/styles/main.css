@@ -1079,6 +1079,18 @@ textarea {
 	flex-direction: row;
 }
 
+.col--l-offset-1 {
+	margin-left: .5px;
+}
+
+@media (max-width: 1366px) {
+
+	#adressesTab .accordion__content.row .row,
+	#handlingTab .accordion__content.row .row {
+		row-gap: 20px;
+	}
+}
+
 
 @media (min-width: 1024px) {
 	.row--m-justify-start {
@@ -3172,8 +3184,11 @@ textarea {
 	font-weight: 500;
 	text-decoration: none;
 	cursor: pointer;
-	display: inline-flex;
 	align-items: center;
+	text-align: center;
+
+	/* display: inline-flex; */
+	display: inline-block;
 }
 
 @media (min-width: 1024px) {
@@ -3201,6 +3216,10 @@ textarea {
 .btn--secondary,
 .btn--prev {
 	background-color: var(--color-grey-100);
+	color: var(--color-text);
+}
+
+#btn-order-draft-save {
 	color: var(--color-text);
 }
 
@@ -3291,6 +3310,7 @@ textarea {
 .btn--filter-search {
 	margin-top: 1em;
 	text-align: center;
+	width: unset !important;
 }
 
 @media (min-width: 1024px) {
@@ -3300,8 +3320,8 @@ textarea {
 		max-width: 11.111111rem;
 		margin-top: 0;
 		padding: 1.166667em;
-		font-size: 0.666667rem;
-		line-height: 1;
+		font-size: 15px;
+		line-height: 11px;
 	}
 }
 
@@ -3311,15 +3331,15 @@ textarea {
 	cursor: not-allowed;
 } */
 
-.btn--tab-navigation {
+/* .btn--tab-navigation {
 	position: relative;
 	display: inline-block;
 	width: fit-content;
-}
+} */
 
-.btn--prev {
+/* .btn--prev {
 	margin-right: 2.5em;
-}
+} */
 
 .btn--next,
 .btn--approval {
@@ -3366,6 +3386,11 @@ textarea {
 	left: 0;
 	width: 100%;
 	height: 2px;
+}
+
+.filter__item .btn--input-clear {
+	margin-top: .25rem;
+	margin-left: -.5rem;
 }
 
 
@@ -3972,6 +3997,10 @@ Max-width then restricts it to our breakpoints.
 	}
 }
 
+.navigation {
+	overflow-y: auto;
+}
+
 .navigation--container {
 	z-index: -1;
 	display: block;
@@ -4065,7 +4094,7 @@ Max-width then restricts it to our breakpoints.
 	font-size: 15px;
 	color: var(--color-secondary-05);
 	transition: color .1s ease-out;
-	padding: 12px 18px;
+	padding: 10px 18px;
 	border-radius: 8px;
 	width: 100%;
 }
@@ -4180,12 +4209,6 @@ Max-width then restricts it to our breakpoints.
 
 .options__item--log-out {
 	margin-top: 0;
-}
-
-@media (min-width: 1024px) {
-	.options__item--log-out {
-		margin-top: 0.833333em;
-	}
 }
 
 .mobile-subnavigation {
@@ -4649,25 +4672,60 @@ Max-width then restricts it to our breakpoints.
 	}
 }
 
+
+
 .tab-button-navigation {
-	margin-top: 1.5em;
+	padding-top: 40px;
+	margin-top: 40px;
+	border-top: 1px solid var(--color-grey-100)
+}
+
+.tab-button-navigation .col {
+	display: flex;
+	flex-direction: row;
+}
+
+@media (max-width: 500px) {
+	.tab-button-navigation .col {
+		flex-direction: column;
+	}
+}
+
+.tab-button-navigation .col #btn-order-draft-save {
+	margin-left: auto;
+}
+
+.tab-button-navigation .col .btn--prev+.btn--approval {
+	margin-left: auto;
+}
+
+.tab-button-navigation .col {
+	gap: 12px;
 }
 
 .filter {
+	margin-block: 20px;
 	position: relative;
-	padding-bottom: 1em;
-	background-color: #DBDBDB;
+	/* background-color: #DBDBDB; */
 	z-index: 2;
-}
-
-@media (min-width: 1024px) {
-	.filter {
-		margin-top: 1rem;
-	}
+	gap: 8px;
 }
 
 .filter__item {
 	position: relative;
+
+	width: 100%;
+	font-family: "Switzer";
+	border-bottom: 1px solid #535350;
+	color: #111827;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 24px;
+	padding: 10px 16px;
+	border-radius: 8px;
+	border: 1px solid #E0E0E4;
+	resize: none;
+	background-color: white;
 }
 
 .filter__label {
@@ -4745,26 +4803,26 @@ Max-width then restricts it to our breakpoints.
 .filter__input[type=number] {
 	position: relative;
 	z-index: 2;
-	margin-bottom: 0.25em;
+	margin-bottom: 0;
 	padding: 0;
-	padding-bottom: 0.45em;
 	font-family: "Switzer";
 	font-weight: 400;
-	font-size: 1rem;
+	font-size: 15px;
 	letter-spacing: normal;
 	border: 0;
-	border-bottom: 1px solid #535350;
 	background-color: transparent;
 	cursor: pointer;
+
+	outline: none !important;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
 
 	.filter__input[type=text],
 	.filter__input[type=number] {
 		font-size: 0.666667rem;
 	}
-}
+} */
 
 .filter__input[type=text]::-webkit-input-placeholder,
 .filter__input[type=number]::-webkit-input-placeholder {
@@ -4850,7 +4908,8 @@ Max-width then restricts it to our breakpoints.
 
 .document-list__header {
 	display: none;
-	background-color: rgba(44, 42, 41, 0.3);
+	/* background-color: rgba(44, 42, 41, 0.3); */
+	border-bottom: 1px solid var(--color-grey-100)
 }
 
 @media (min-width: 1024px) {
@@ -4892,10 +4951,13 @@ Max-width then restricts it to our breakpoints.
 	display: none;
 	margin-top: 0.85em;
 	background-color: rgba(44, 42, 41, 0.15);
+	border-radius: 8px;
+	background-color: var(--color-grey-100)
 }
 
 .document-list__header--sub>.col {
-	padding: 0.75rem 0.5rem 0;
+	/* padding: 0.75rem 0.5rem 0; */
+	padding: 0.75rem 0 0;
 }
 
 .document-list__footer {
@@ -4906,9 +4968,7 @@ Max-width then restricts it to our breakpoints.
 	display: inline-block;
 	padding-bottom: 1em;
 	font-weight: bold;
-	font-size: 0.875rem;
-	letter-spacing: 0.017857em;
-	color: #535350;
+	font-size: 13px;
 }
 
 @media (min-width: 1024px) {
@@ -4920,8 +4980,8 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__headline--sub {
-	padding-bottom: 0.65em;
-	font-weight: 400;
+	padding-bottom: 0.7em;
+	font-weight: bold;
 	color: var(--color-text);
 }
 
@@ -4931,7 +4991,7 @@ Max-width then restricts it to our breakpoints.
 	min-height: 3.9375rem;
 	padding: 1.25em 0 1.25em 2.125rem;
 	font-size: 0.777778rem;
-	border-bottom: 1px solid rgba(112, 112, 112, 0.8);
+	border-bottom: 1px solid var(--color-grey-100)
 }
 
 @media (min-width: 1024px) {
@@ -4944,6 +5004,7 @@ Max-width then restricts it to our breakpoints.
 
 .document-list__file>.col {
 	padding: 0 0.5rem;
+	padding: 0;
 }
 
 .document-list__file .document-list__file--sub-item.js-active>.col {
@@ -5158,8 +5219,8 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__file--sub.js-active .document-list__link--expand .icon--expand {
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .document-list__file--sub::before {
@@ -5210,7 +5271,7 @@ Max-width then restricts it to our breakpoints.
 	display: block;
 	width: 100%;
 	height: 1px;
-	background-color: rgba(112, 112, 112, 0.8);
+	background-color: var(--color-grey-100);
 	content: "";
 }
 
@@ -5295,7 +5356,7 @@ Max-width then restricts it to our breakpoints.
 }
 
 .document-list__text {
-	color: #535350;
+	/* color: #535350; */
 }
 
 .document-list__text--contact-person {
@@ -5334,6 +5395,12 @@ Max-width then restricts it to our breakpoints.
 	width: 100%;
 	text-align: right;
 	color: #DB1A3C;
+}
+
+#pageZinkGraph .document-list__link,
+#pageEnvGraph .document-list__link {
+	width: fit-content;
+	color: white;
 }
 
 .document-list__link--contact-person {
@@ -5415,8 +5482,7 @@ Max-width then restricts it to our breakpoints.
 	}
 
 	.document-list__icon-container>img {
-		width: 1.888889rem;
-		height: 2.111111rem;
+		width: 20px;
 		display: inline-block;
 	}
 }
@@ -5668,6 +5734,13 @@ Max-width then restricts it to our breakpoints.
 	font-family: 'Font Awesome 6 Pro Light';
 	margin-right: 8px;
 	content: '\f095';
+}
+
+.icon--graph::before {
+	font-size: 18px;
+	font-family: 'Font Awesome 6 Pro Light';
+	margin-right: 8px;
+	content: '\f201';
 }
 
 
@@ -5974,6 +6047,13 @@ Max-width then restricts it to our breakpoints.
 	row-gap: 20px;
 }
 
+@media (max-width: 500px) {
+	.accordion.js-active .accordion__content {
+		padding-left: 0px;
+	}
+
+}
+
 .accordion__header {
 	margin-top: 24px;
 	box-shadow: 0px 0px 0px 1px var(--color-white) inset;
@@ -6012,8 +6092,31 @@ Max-width then restricts it to our breakpoints.
 	font-weight: 600;
 	font-size: 13px;
 	/* font-size: 15px; */
+	/* display: inline-flex; */
 	text-transform: none;
+
+	/* display: inline; */
 	display: inline-flex;
+	/* display:flex; */
+}
+
+@media (max-width: 500px) {
+	.accordion__label {
+		display: flex;
+	}
+
+	.accordion__label.accordion__label--checkbox {
+		display: contents;
+	}
+}
+
+#adressesTab .accordion__content .row .col .row {
+	margin-block: 12px;
+}
+
+#traceabilityReqGroup .accordion__content .row .col .row {
+	margin-bottom: 20px;
+	flex-wrap: nowrap;
 }
 
 .accordion__label--checkbox {
@@ -6250,8 +6353,24 @@ Max-width then restricts it to our breakpoints.
 }
 
 .accordion__add-more {
-	margin-top: 2em;
-	border-top: 1px solid #535350;
+	margin-top: 40px;
+	background-color: var(--color-grey-100);
+	border-radius: 8px;
+	width: 100%;
+	padding: 10px;
+}
+
+.accordion__add-more .accordion__link {
+	color: black;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.accordion__add-more .accordion__link.accordion__link--create::before {
+	font-size: 14px;
+	font-family: 'Font Awesome 6 Pro Light';
+	margin-right: 8px;
+	content: '\2b';
 }
 
 .accordion__link {
@@ -6641,6 +6760,10 @@ Max-width then restricts it to our breakpoints.
 	margin-top: 4px !important;
 	font-size: 13px;
 	margin-left: 30px !important;
+}
+
+#subjectTab .accordion:nth-of-type(3) .accordion__content .row:last-child {
+	margin-top: -20px;
 }
 
 
