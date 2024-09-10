@@ -3219,7 +3219,9 @@ textarea {
 	color: var(--color-text);
 }
 
-#btn-order-draft-save {
+#btn-order-draft-save,
+#btn-order-treatment-draft-save,
+#btn-order-adresses-draft-save {
 	color: var(--color-text);
 }
 
@@ -4691,7 +4693,9 @@ Max-width then restricts it to our breakpoints.
 	}
 }
 
-.tab-button-navigation .col #btn-order-draft-save {
+.tab-button-navigation .col #btn-order-draft-save,
+.tab-button-navigation .col #btn-order-treatment-draft-save,
+.tab-button-navigation .col #btn-order-adresses-draft-save {
 	margin-left: auto;
 }
 
