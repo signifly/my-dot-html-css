@@ -3323,25 +3323,9 @@ textarea {
 		margin-top: 0;
 		padding: 1.166667em;
 		font-size: 15px;
-		line-height: 11px;
+		line-height: 24px;
 	}
 }
-
-/* .btn--disabled {
-	background-color: var(--color-grey-100);
-	color: var(--color-grey-300);
-	cursor: not-allowed;
-} */
-
-/* .btn--tab-navigation {
-	position: relative;
-	display: inline-block;
-	width: fit-content;
-} */
-
-/* .btn--prev {
-	margin-right: 2.5em;
-} */
 
 .btn--next,
 .btn--approval {
