@@ -1,757 +1,1217 @@
 <!DOCTYPE html>
 <html lang="da-DK">
-	<head>
-		<meta charset="utf-8">
-		<title>Mit DOT</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="assets/scripts/load.min.js"></script>
-		<link rel="stylesheet" href="assets/styles/main.min.css">
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<script src="assets/scripts/vendors/moment.min.js"></script>
-		<script src="assets/scripts/vendors/pikaday.min.js"></script>
-	</head>
-	<body>
-		<main>
-			<section class="section section--dashboard">
-				<div class="row">
-					<div class="col col--xxs-16 col--m-4 col--l-4 col--xl-3 navigation--container" id="sidenavigation">
-						<div class="navigation"><img class="logo logo--white logo--dashboard" src="assets/images/dot-logo--white.svg" alt="DOT logo">
-							<p class="login-status">Du er logget ind som<span class="login-status__username">Anders Sønderbæk</span></p>
-							<ul class="navigation__list-container">
-								<li class="navigation__list-item"><a class="navigation__list-link navigation__list-link--active" href="dashboard.html">Dashboard</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="opret-foelgeseddel.html">Opret følgeseddel</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="oekonomi.html">Kundecenter</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="ordreoversigt.html">Oversigt</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="downloadcenter.html">Downloadcenter</a></li>
-								<li class="navigation__list-item"><a class="navigation__list-link" href="kontakt.html">Kontakt</a></li>
-							</ul>
-							<ul class="options">
-								<li class="options__item"><a class="options__link" href="hjaelp-til-mit-dot.html"><span class="icon options__icon"><img src="assets/images/icons/questionmark.svg" alt="Questionmark"></span>Hjælp til mit DOT</a></li>
-								<li class="options__item"><a class="options__link" href="indstillinger.html"><span class="icon options__icon"><img src="assets/images/icons/cogwheel.svg" alt="Icon Placeholder"></span>Indstillinger</a></li>
-								<li class="options__item options__item--log-out"><a class="options__link" href="#"><span class="icon options__icon"><img src="assets/images/icons/log-out.svg" alt="Icon Placeholder"></span>Log ud</a></li>
-							</ul>
-						</div>
+
+<head>
+	<meta charset="utf-8">
+	<title>Mit DOT</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="assets/scripts/load.min.js"></script>
+	<link rel="stylesheet" href="assets/styles/main.min.css">
+	<link rel="stylesheet" href="content/migratorcss.css">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<script src="assets/scripts/vendors/moment.min.js"></script>
+	<script src="assets/scripts/vendors/pikaday.min.js"></script>
+</head>
+
+<body>
+	<main>
+		<section class="section section--dashboard">
+			<div class="row">
+				<div class="col col--xxs-16 col--m-4 col--l-4 col--xl-3 navigation--container" id="sidenavigation">
+					<div class="navigation">
+						<img class="logo logo--white logo--dashboard" src="assets/images/dot-logo--white.svg"
+							alt="DOT logo">
+						<span class="divider divider--full-w"></span>
+						<p class="login-status">Du er logget ind som:<span class="login-status__username">Anders
+								Sønderbæk</span></p>
+						<span class="divider divider--full-w"></span>
+						<ul class="navigation__list-container">
+							<li class="navigation__list-item"><a
+									class="navigation__list-link navigation__list-link--active icon--home"
+									href="dashboard.html">Forside</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--calendar"
+									href="opret-foelgeseddel.html">Opret booking</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--document"
+									href="oekonomi.html">Dokumenter</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--status"
+									href="ordreoversigt.html">Status</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--download"
+									href="downloadcenter.html">Download center</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--contact"
+									href="kontakt.html">Kontakt</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--graph"
+									onclick="showPage('pageZinkGraph');">TEST ZINK</a></li>
+							<li class="navigation__list-item"><a class="navigation__list-link icon--graph"
+									onclick="showPage('pageEnvGraph');">TEST MILJØ</a></li>
+
+							<li class="navigation__list-item"><a class="navigation__list-link" id="new-update-infolink"
+									target="_blank">
+									<span>
+										<img src="assets/images/icons/sparkles.svg" alt="">
+										Nye opdateringer
+									</span>
+									<img src="assets/images/icons/arrow-up-right.svg" alt="">
+								</a>
+							</li>
+						</ul>
+						<span class="divider"></span>
+						<ul class="options">
+							<li class="options__item"><a class="options__link" href="hjaelp-til-mit-dot.html">Hjælp til
+									mit DOT</a></li>
+							<li class="options__item"><a class="options__link"
+									href="indstillinger.html"></span>Indstillinger</a></li>
+							<li class="options__item options__item--log-out"><a class="options__link" href="#">Log
+									ud</a></li>
+						</ul>
 					</div>
-					<button class="btn btn--sidenavigation" id="sidenavigationBtn"><span class="line"></span><span class="line"></span><span class="line"></span></button>
-					<div class="col col--xxs-16 col--m-12 col--l-12 col--xl-13">
-						<div class="row row--no-gutters header header--container">
-							<div class="col mobile-subnavigation col--xxs-16"><img class="logo logo--mobile" src="assets/images/dot-logo.svg" alt="DOT logo">
-								<div class="language-select"><span class="icon language-select__icon" id="languageSelect"><img src="assets/images/icons/globe.svg" alt="Globe"></span>
-									<ul class="language-select__list">
-										<li class="language-select__language js-active"><a href="#">DK</a></li>
-										<li class="language-select__language"><a href="#">SE</a></li>
-										<li class="language-select__language"><a href="#">DE</a></li>
-										<li class="language-select__language"><a href="#">EN</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="row content content--container">
-							<div class="col col--xxs-16">
-								<h1 class="heading heading--page">Opret følgeseddel</h1>
-								<p class="page-description">Husk booking inden kl. 15:00 (fredag kl. 13:00) for afhentning på næstkommende tur.</p>
-							</div>
-							<div class="col col--xxs-16">
-								<ul class="tab-navigation tab-navigation--justified">
-									<li class="tab-navigation__item js-active" data-tab="subjectTab">Emner</li>
-									<li class="tab-navigation__item" data-tab="handlingTab">Behandling</li>
-									<li class="tab-navigation__item" data-tab="adressesTab">Adresser</li>
-									<li class="tab-navigation__item" data-tab="approvalTab">Godkendt</li>
+				</div>
+				<button class="btn btn--sidenavigation" id="sidenavigationBtn"><span class="line"></span><span
+						class="line"></span><span class="line"></span></button>
+				<div class="col col--xxs-16 col--m-12 col--l-12 col--xl-13">
+					<div class="row row--no-gutters header header--container">
+						<div class="col mobile-subnavigation col--xxs-16"><img class="logo logo--mobile"
+								src="assets/images/dot-logo.svg" alt="DOT logo">
+							<div class="language-select"><span class="icon language-select__icon"
+									id="languageSelect"><img src="assets/images/icons/globe.svg" alt="Globe"></span>
+								<ul class="language-select__list">
+									<li class="language-select__language js-active"><a href="#">DK</a></li>
+									<li class="language-select__language"><a href="#">SE</a></li>
+									<li class="language-select__language"><a href="#">DE</a></li>
+									<li class="language-select__language"><a href="#">EN</a></li>
 								</ul>
 							</div>
-							<!-- Emner-->
-							<div class="tab-container col col--xxs-16 js-active" id="subjectTab">
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Ordreinfo</span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
-									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="orderInfoOrderNumber">Ordrenr. (anføres på faktura)</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="orderInfoOrderNumber" type="text" name="orderInfoOrderNumber" placeholder="Indtast ordrenr.">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="orderInfoRevNumber">Rekvnr. (anføres på faktura)</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="orderInfoRevNumber" type="text" name="orderInfoRevNumber" placeholder="Indtast rekvnr.">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="orderInfoRetrievalSize">Hvad fylder afhentningen</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="orderInfoRetrievalSize" type="text" name="orderInfoRetrievalSize" placeholder="ex. 1 EU palle 1200x800 + 1 bdt. rør 300x80">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="orderInfoTotalWeight">Totalvægt ved afhentning</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="orderInfoTotalWeight" type="text" name="orderInfoTotalWeight" placeholder="Indtast totalvægt i kg.">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="orderInfoDOTNumber">DOT nr. (tilbuds- /ordrenummer)</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<div class="accordion__select-container">
-													<select class="accordion__select" id="orderInfoDOTNumber" name="orderInfoDOTNumber" required>
-														<option value="" disabled selected hidden>Vælg tilbudsnr.</option>
-														<option>Option 1</option>
-														<option>Option 2</option>
-														<option>Option 3</option>
-													</select>
-													<div class="accordion__select-chevron"></div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="orderInfoDOTSpecialTask">DOT specialopgave</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="orderInfoDOTSpecialTask" type="text" name="orderInfoDOTSpecialTask" placeholder="Indtast specialopgavenr.">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="orderInfoComment">Bemærkning</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="orderInfoComment" type="text" name="orderInfoComment" placeholder="Indtast bemærkning">
-											</div>
+						</div>
+					</div>
+					<div class="row content content--container">
+						<div class="col col--xxs-16">
+							<h1 class="heading heading--page">Opret booking</h1>
+
+							<div class="info--container">
+								<p id="orderDeadlineInstructions" class="page-description">
+									For Jylland: Husk booking inden kl. 15:00 (fredag kl. 13:00) for afhentning på
+									næstkommende tur.<br>For Fyn &amp; Sjælland: Husk booking inden kl. 13:00 (alle
+									hverdage) for afhentning på næstkommende tur.
+								</p>
+							</div>
+
+						</div>
+						<div class="col col--xxs-16">
+							<ul class="tab-navigation tab-navigation--justified">
+								<li class="tab-navigation__item js-active" data-tab="subjectTab">Emner</li>
+								<li class="tab-navigation__item" data-tab="handlingTab">Behandling</li>
+								<li class="tab-navigation__item" data-tab="adressesTab">Adresser</li>
+								<li class="tab-navigation__item" data-tab="approvalTab">Godkendt</li>
+							</ul>
+						</div>
+						<!-- Emner-->
+						<div class="tab-container col col--xxs-16 js-active" id="subjectTab">
+
+							<div class="file-upload__container row row--no-gutters">
+								<div class="col col--xxs-16">
+									<span class="file-upload__text">Vil du tage udgangspunkt i en tidligere ordre eller
+										kladde?</span>
+
+									<div class="migOrderTopBtnContainer">
+										<div class="accordion__select-container">
+											<select class="accordion__select" id="draftList"
+												onchange="draftListSelect();" name="draftList">
+												<option selected="true" value="">Ingen valgt</option>
+												<option value="1A3E0FF20B5A464DB3065486E84444E5">Test kran</option>
+											</select>
+											<div class="accordion__select-chevron"></div>
 										</div>
 									</div>
-								</div>
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-10"><span class="accordion__headline">Varenavn (kaldes fra varenavn)</span></div>
-										<div class="col col--xxs-4 col--m-5 text--right"><span class="accordion__link accordion__link--delete">Slet emne</span></div>
-										<div class="col col--xxs-2 col--m-1"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
-									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNameNumber">Varenummer</label>
-											</div>
-											<div class="product-list--container col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="productNameNumber" type="text" name="productNameNumber" placeholder="Indtast eget varenummer">
-												<div class="product-list">
-													<div class="product-list__product">
-														<div class="row">
-															<div class="col col--xxs-4 col--m-3"><img class="product-list__product-image" src="assets/images/product-list__placeholder.png" alt=""></div>
-															<div class="col col--xxs-12">
-																<p class="product-list__product-name">Varenavn</p>
-																<p class="product-list__product-number">Varenr. 1901277</p>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col col--xxs-8">
-																<p class="product-list__product-description">Højde (mm):<span>2080</span></p>
-																<p class="product-list__product-description">Bredde (mm):<span>2080</span></p>
-																<p class="product-list__product-description">Længde (mm):<span>2080</span></p>
-															</div>
-															<div class="col col--xxs-8">
-																<p class="product-list__product-description">Enhed:<span>2080</span></p>
-																<p class="product-list__product-description">Emballage:<span>2080</span></p>
-																<p class="product-list__product-description">Godstykkelse:<span>2080</span></p>
-																<p class="product-list__product-description">Lagtyk. krav:<span>2080</span></p>
-															</div>
-														</div>
-													</div>
-													<div class="product-list__product">
-														<div class="row">
-															<div class="col col--xxs-4 col--m-3"><img class="product-list__product-image" src="assets/images/product-list__placeholder.png" alt=""></div>
-															<div class="col col--xxs-12">
-																<p class="product-list__product-name">Varenavn</p>
-																<p class="product-list__product-number">Varenr. 1901277</p>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col col--xxs-8">
-																<p class="product-list__product-description">Højde (mm):<span>2080</span></p>
-																<p class="product-list__product-description">Bredde (mm):<span>2080</span></p>
-																<p class="product-list__product-description">Længde (mm):<span>2080</span></p>
-															</div>
-															<div class="col col--xxs-8">
-																<p class="product-list__product-description">Enhed:<span>2080</span></p>
-																<p class="product-list__product-description">Emballage:<span>2080</span></p>
-																<p class="product-list__product-description">Godstykkelse:<span>2080</span></p>
-																<p class="product-list__product-description">Lagtyk. krav:<span>2080</span></p>
-															</div>
-														</div>
-													</div>
-													<div class="product-list__product">
-														<div class="row">
-															<div class="col col--xxs-4 col--m-3"><img class="product-list__product-image" src="assets/images/product-list__placeholder.png" alt=""></div>
-															<div class="col col--xxs-12">
-																<p class="product-list__product-name">Varenavn</p>
-																<p class="product-list__product-number">Varenr. 1901277</p>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col col--xxs-8">
-																<p class="product-list__product-description">Højde (mm):<span>2080</span></p>
-																<p class="product-list__product-description">Bredde (mm):<span>2080</span></p>
-																<p class="product-list__product-description">Længde (mm):<span>2080</span></p>
-															</div>
-															<div class="col col--xxs-8">
-																<p class="product-list__product-description">Enhed:<span>2080</span></p>
-																<p class="product-list__product-description">Emballage:<span>2080</span></p>
-																<p class="product-list__product-description">Godstykkelse:<span>2080</span></p>
-																<p class="product-list__product-description">Lagtyk. krav:<span>2080</span></p>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNameName">Varenavn</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="productNameName" type="text" name="productNameName" placeholder="Indtast varenavn">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNameAmount">Antal</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="productNameAmount" type="text" name="productNameAmount" placeholder="Indtast antal">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNamePackaging">Emballage</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="productNamePackaging" type="text" name="productNamePackaging" placeholder="Skriv evt. to blå spande">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNameHeight">Højde (mm)</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="productNameHeight" type="text" name="productNameHeight" placeholder="Indtast højde i mm.">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNameWidth">Bredde (mm)</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="productNameWidth" type="text" name="productNameWidth" placeholder="Indtast bredde i mm.">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNameLength">Længde (mm)</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="productNameLength" type="text" name="productNameLength" placeholder="Indtast længde i mm.">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNameMyRequirement">My Krav</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<!-- "Fejl" sættes med accordion__input--error-->
-												<input class="accordion__input accordion__input--error" id="productNameMyRequirement" type="text" name="productNameMyRequirement" placeholder="Indtast my krav (tal verificering)">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
-												<label class="accordion__label" for="productNameComment">Bemærkning</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<input class="accordion__input" id="productNameComment" type="text" name="productNameComment" placeholder="Indtast bemærkning til varenummer">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Tilføj billede eller tegn skitse</span></div>
-											<div class="col file-upload--container col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<div class="file-upload file-upload--image"><span class="paragraph--small file-upload__link" onclick="this.nextElementSibling.click()">+ Tilføj billede</span>
-													<input class="file-upload__image-upload" type="file">
-													<div class="file-upload__thumbnail--container"><img class="file-upload__thumbnail" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""></div>
-												</div><span class="paragraph--small">eller</span>
-												<div class="file-upload file-upload--sketch"><span class="paragraph--small file-upload__link">+ Tegn skitse</span>
-													<input class="file-upload__sketch-upload" type="file">
-													<div class="file-upload__thumbnail--container"><img class="file-upload__thumbnail" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""></div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
-												<input class="accordion__input--checkbox" id="productNamePackAsShown" type="checkbox" name="productNamePackAsShown">
-												<label class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded" for="productNamePackAsShown">Pakkes som vist på billede</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
-												<input class="accordion__input--checkbox" id="productNameAddNumber" type="checkbox" name="productNameAddNumber">
-												<label class="accordion__label accordion__label--checkbox" for="productNameAddNumber">Tilføj varenummer til vareliste</label>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-footer row row--no-gutters">
-									<div class="accordion__add-more row">
-										<div class="col col--xxs-16 text--right"><span class="accordion__link accordion__link--create">+ Tilføj nyt emne</span></div>
-									</div>
-									<div class="tab-button-navigation row">
-										<div class="col col--xxs-16"><a class="btn btn--next btn--tab-navigation">Næste</a></div>
+
+									<div class="migOrderTopBtnContainer">
+										<span class="btn btn--tab-navigation migImportBtn">Indlæs CSV-fil</span>
+										<input onchange="CSVImport(this);" class="input-importfile migImportBtn"
+											type="file">
 									</div>
 								</div>
 							</div>
-							<!-- Behandling-->
-							<div class="tab-container col col--xxs-16" id="handlingTab">
-								<!-- Overfladebehandling-->
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Overfladebehandling</span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
+
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14"><span class="accordion__headline">Ordreinfo</span>
 									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="surfaceTreatmentZinc" type="checkbox" name="surfaceTreatmentZinc">
-												<label class="accordion__label accordion__label--checkbox" for="surfaceTreatmentZinc">Varmforzinkning</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="surfaceTreatmentAqua" type="checkbox" name="surfaceTreatmentAqua">
-												<label class="accordion__label accordion__label--checkbox" for="surfaceTreatmentAqua">Aquacoating*</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="surfaceTreatmentMetal" type="checkbox" name="surfaceTreatmentMetal">
-												<label class="accordion__label accordion__label--checkbox" for="surfaceTreatmentMetal">Metalisering*</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="surfaceTreatmentPowder" type="checkbox" name="surfaceTreatmentPowder">
-												<label class="accordion__label accordion__label--checkbox" for="surfaceTreatmentPowder">Pulverlakering*</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="surfaceTreatmentWet" type="checkbox" name="surfaceTreatmentWet">
-												<label class="accordion__label accordion__label--checkbox" for="surfaceTreatmentWet">Vådlakering DS/EN ISO 12944*</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16">
-												<p class="paragraph--small paragraph--italic">* Leveres IKKE på 48/72 timer. Forventet leveringstid er 1 - 3 uger. Når du har booket dine emner ind, kontakt da DOT for leveringstid hvis nødvendigt.</p>
-											</div>
-										</div>
-									</div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
 								</div>
-								<!-- Forbehandling-->
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Forbehandling</span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
-									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="pretreatmentSand" type="checkbox" name="pretreatmentSand">
-												<label class="accordion__label accordion__label--checkbox" for="pretreatmentSand">Sandblæsning*</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="pretreatmentSteam" type="checkbox" name="pretreatmentSteam">
-												<label class="accordion__label accordion__label--checkbox" for="pretreatmentSteam">Damprensning*</label>
-											</div>
+								<div class="accordion__content row row—no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="orderInfoOrderNumber">Ordrenr. (anføres
+												på faktura)</label>
+											<span class="accordion__label--mandatory">*</span>
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="pretreatmentSwirl" type="checkbox" name="pretreatmentSwirl">
-												<label class="accordion__label accordion__label--checkbox" for="pretreatmentSwirl">Slyngrensning*</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="pretreatmentDrilling" type="checkbox" name="pretreatmentDrilling">
-												<label class="accordion__label accordion__label--checkbox" for="pretreatmentDrilling">Skæring/boring af manglende huller*</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="pretreatmentZincAcid" type="checkbox" name="pretreatmentZincAcid">
-												<label class="accordion__label accordion__label--checkbox" for="pretreatmentZincAcid">Afsyring af zink*</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="pretreatmentFirePasta" type="checkbox" name="pretreatmentFirePasta">
-												<label class="accordion__label accordion__label--checkbox" for="pretreatmentFirePasta">Indsmøring med brandpasta*</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="postTreatmentContact" type="checkbox" name="postTreatmentContact">
-												<label class="accordion__label accordion__label--checkbox" for="postTreatmentContact">Kundekontakt forud for skæring/boring af manglende huller (mod ekspeditionsgebyr på x kr.)</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16">
-												<p class="paragraph--small paragraph--italic">* Leveres IKKE på 48/72 timer. Forventet leveringstid er 1 - 3 uger. Når du har booket dine emner ind, kontakt da DOT for leveringstid hvis nødvendigt.</p>
-											</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="orderInfoOrderNumber" type="text"
+												name="orderInfoOrderNumber" placeholder="Indtast ordrenr.">
 										</div>
 									</div>
-								</div>
-								<!-- Efterbehandling-->
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Efterbehandling</span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="orderInfoRevNumber">Rekvnr. (anføres på
+												faktura)</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="orderInfoRevNumber" type="text"
+												name="orderInfoRevNumber" placeholder="Indtast rekvnr.">
+										</div>
 									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="postTreatmentThreadBrush" type="checkbox" name="postTreatmentThreadBrush">
-												<label class="accordion__label accordion__label--checkbox" for="postTreatmentThreadBrush">Afbørstning af gevind*</label>
-											</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="orderInfoRetrievalSize">Hvad fylder
+												afhentningen</label>
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="postTreatmentThreadCut" type="checkbox" name="postTreatmentThreadCut">
-												<label class="accordion__label accordion__label--checkbox" for="postTreatmentThreadCut">Opskærning af gevind*</label>
-											</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="orderInfoRetrievalSize" type="text"
+												name="orderInfoRetrievalSize"
+												placeholder="ex. 1 EU palle 1200x800 + 1 bdt. rør 300x80">
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
-												<input class="accordion__input--checkbox" id="postTreatmentPlastic" type="checkbox" name="postTreatmentPlastic">
-												<label class="accordion__label accordion__label--checkbox" for="postTreatmentPlastic">Indpakning i plast</label>
-											</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="orderInfoTotalWeight">Totalvægt ved
+												afhentning</label>
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16">
-												<p class="paragraph--small paragraph--italic">* Leveres IKKE på 48/72 timer. Forventet leveringstid er 1 - 3 uger. Når du har booket dine emner ind, kontakt da DOT for leveringstid hvis nødvendigt.</p>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="orderInfoTotalWeight" type="text"
+												name="orderInfoTotalWeight" placeholder="Indtast totalvægt i kg.">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="orderInfoDOTNumber">DOT nr. (tilbuds-
+												/ordrenummer)</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<div class="accordion__select-container">
+												<select class="accordion__select" id="orderInfoDOTNumber"
+													name="orderInfoDOTNumber" required>
+													<option value="" disabled selected hidden>Vælg tilbudsnr.</option>
+													<option>Option 1</option>
+													<option>Option 2</option>
+													<option>Option 3</option>
+												</select>
+												<div class="accordion__select-chevron"></div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<!-- Krav til maling-->
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Krav til maling</span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
-									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
-												<label class="accordion__label" for="paintingCorrosionClass">Korrosionsklasse</label>
-												<div class="accordion__select-container">
-													<select class="accordion__select" id="paintingCorrosionClass" name="paintingCorrosionClass" required>
-														<option value="" disabled selected hidden>Vælg klasse (Liste hardcodes)</option>
-														<option>Option 1</option>
-														<option>Option 2</option>
-														<option>Option 3</option>
-													</select>
-													<div class="accordion__select-chevron"></div>
-												</div>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
-												<label class="accordion__label" for="paintingRAL">RAL farve</label>
-												<input class="accordion__input" id="paintingRAL" type="text" name="paintingRAL" placeholder="Indtast værdi">
-											</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="orderInfoDOTSpecialTask">DOT
+												specialopgave</label>
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
-												<label class="accordion__label" for="paintingDurability">Levetid</label>
-												<div class="accordion__select-container">
-													<select class="accordion__select" id="paintingDurability" name="paintingDurability" required>
-														<option value="" disabled selected hidden>Vælg levetid</option>
-														<option>Option 1</option>
-														<option>Option 2</option>
-														<option>Option 3</option>
-													</select>
-													<div class="accordion__select-chevron"></div>
-												</div>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
-												<label class="accordion__label" for="paintingShine">Glans</label>
-												<div class="accordion__select-container">
-													<select class="accordion__select" id="paintingShine" name="paintingShine" required>
-														<option value="" disabled selected hidden>Vælg levetid</option>
-														<option>Option 1</option>
-														<option>Option 2</option>
-														<option>Option 3</option>
-													</select>
-													<div class="accordion__select-chevron"></div>
-												</div>
-											</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="orderInfoDOTSpecialTask" type="text"
+												name="orderInfoDOTSpecialTask" placeholder="Indtast specialopgavenr.">
 										</div>
 									</div>
-								</div>
-								<!-- Sporbarhed-->
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Sporbarhed* -<span class="accordion__headline accordion__headline--highlighted"> Bemærk at manglende udfyldelse af sporbarhed medfører varmforzinkning uden dokumentation!</span></span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
-									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
-												<label class="accordion__label" for="traceabilityStandard">Sporbarhed iht. DS/EN 1090-2</label>
-												<div class="accordion__select-container">
-													<select class="accordion__select" id="traceabilityStandard" name="traceabilityStandard" required>
-														<option value="" disabled selected hidden>Vælg sporbarhed (delvis eller fuld)</option>
-														<option>Option 1</option>
-														<option>Option 2</option>
-														<option>Option 3</option>
-													</select>
-													<div class="accordion__select-chevron"></div>
-												</div>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
-												<label class="accordion__label" for="traceabilityBeyondStandard">Krav til reparationslagtykkelse ud over std. kravet på 100 µm</label>
-												<input class="accordion__input" id="traceabilityBeyondStandard" type="text" name="traceabilityBeyondStandard" placeholder="Indtast krav">
-											</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="orderInfoComment">Bemærkning</label>
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--l-7 col--xl-6">
-												<input class="accordion__input--checkbox" id="traceabilityZinc" type="checkbox" name="traceabilityZinc">
-												<label class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down" for="traceabilityZinc">Ønsker måling udført efter varmforzinking</label>
-												<input class="accordion__input--checkbox" id="traceabilityPainting" type="checkbox" name="traceabilityPainting">
-												<label class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down" for="traceabilityPainting">Ønsker lagtykkelsesmåling efter maling</label>
-												<input class="accordion__input--checkbox" id="traceabilityDensity" type="checkbox" name="traceabilityDensity">
-												<label class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down" for="traceabilityDensity">Ønsker dokumentation for lagtykkelsen tilsendt</label>
-											</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="orderInfoComment" type="text"
+												name="orderInfoComment" placeholder="Indtast bemærkning">
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--m-10">
-												<p class="paragraph--small paragraph--italic">* Manglende udfyldelse medfører varmforzinkning uden dokumentation. Maling udføres som minimum iht. korrestionskategori C3 middel jf. DS/EN ISO 12944, hvis ikke andet er noteret.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="tab-footer row row--no-gutters">
-									<div class="tab-button-navigation row">
-										<div class="col col--xxs-16"><a class="btn btn--prev btn--tab-navigation">Forrige</a><a class="btn btn--next btn--tab-navigation">Næste</a></div>
 									</div>
 								</div>
 							</div>
-							<!-- Adresser-->
-							<div class="tab-container col col--xxs-16" id="adressesTab">
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Afhentning- og leveringsadresser</span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
-									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
-												<label class="accordion__label" for="retrievalDate">Afhentningsdato</label>
-												<input class="accordion__input" id="retrievalDate" type="text" name="retrievalDate" placeholder="Vælg dato" readonly>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
-												<label class="accordion__label" for="deliveryDate">Forventet leveringsdato</label>
-												<input class="accordion__input" id="deliveryDate" type="text" name="deliveryDate" placeholder="Vælg dato" readonly>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
-												<label class="accordion__label" for="retrievalAddress">Vælg afhentningsadresse fra liste</label>
-												<div class="accordion__select-container">
-													<select class="accordion__select" id="retrievalAddress" name="retrievalAddress" required>
-														<option value="" disabled selected hidden>Vælg afhentningsadresse</option>
-														<option>Naurvej 22, 9000 Aalborg (standard)</option>
-														<option>Naurvej 23, 9000 Aalborg (Alternativ adresse 1)</option>
-														<option>Naurvej 24, 9000 Aalborg (Alternativ adresse 2)</option>
-													</select>
-													<div class="accordion__select-chevron"></div>
-												</div><span class="paragraph--small paragraph--grey" id="retrievalAddressText">Kontor 234, Alexander Foss Gade 23,<br>9240 Kalundborg Havn overfor det centrale skur.</span>
-												<p class="paragraph--italic paragraph--small paragraph--accordion">eller&nbsp;<span class="accordion__link" id="showRetrievalAddress">+ indtast adresse</span></p>
-												<input class="accordion__input--checkbox" id="customerDeliversOrder" type="checkbox" name="customerDeliversOrder">
-												<label class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded" for="customerDeliversOrder">Vi leverer selv ordren til DOT</label>
-												<input class="accordion__input--checkbox" id="craneAtRetrieval" type="checkbox" name="craneAtRetrieval">
-												<label class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded" for="craneAtRetrieval">Kran ved afhenting*</label>
-											</div>
-											<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
-												<label class="accordion__label" for="deliveryAddress">Vælg leveringssadresse fra liste</label>
-												<div class="accordion__select-container">
-													<select class="accordion__select" id="deliveryAddress" name="deliveryAddress" required>
-														<option value="" disabled selected hidden>Vælg leveringsadresse</option>
-														<option>Naurvej 22, 9000 Aalborg (standard)</option>
-														<option>Naurvej 23, 9000 Aalborg (Alternativ adresse 1)</option>
-														<option>Naurvej 24, 9000 Aalborg (Alternativ adresse 2)</option>
-													</select>
-													<div class="accordion__select-chevron"></div>
-												</div><span class="paragraph--small paragraph--grey" id="deliveryAddressText">Kontor 234, Alexander Foss Gade 23,<br>9240 Kalundborg Havn overfor det centrale skur.</span>
-												<p class="paragraph--italic paragraph--small paragraph--accordion">eller&nbsp;<span class="accordion__link" id="showDeliveryAddress">+ indtast adresse</span></p>
-												<input class="accordion__input--checkbox" id="customerRetrievesOrder" type="checkbox" name="customerRetrievesOrder">
-												<label class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded" for="customerRetrievesOrder">Vi afhenter selv ordren ved DOT</label>
-												<input class="accordion__input--checkbox" id="craneAtDelivery" type="checkbox" name="craneAtDelivery">
-												<label class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded" for="craneAtDelivery">Kran ved levering*</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16">
-												<p class="paragraph--small paragraph--italic">* Levering med kran kan medføre længere leveringstid.</p>
-											</div>
-										</div>
-									</div>
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-10"><span class="accordion__headline">Varenavn (kaldes fra
+											varenavn)</span></div>
+									<div class=""><span class="accordion__link accordion__link--delete"></span></div>
+									<div class="col col--xxs-2 col--m-1"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
 								</div>
-								<div class="tab-footer row row--no-gutters">
-									<div class="tab-button-navigation row">
-										<div class="col col--xxs-16"><a class="btn btn--prev btn--tab-navigation">Forrige</a><a class="btn btn--next btn--tab-navigation">Næste</a></div>
+								<div class="accordion__content row row--no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNameNumber">Varenummer</label>
+										</div>
+										<div
+											class="product-list--container col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="productNameNumber" type="text"
+												name="productNameNumber" placeholder="Indtast eget varenummer">
+											<div class="product-list">
+												<div class="product-list__product">
+													<div class="row">
+														<div class="col col--xxs-4 col--m-3"><img
+																class="product-list__product-image"
+																src="assets/images/product-list__placeholder.png"
+																alt=""></div>
+														<div class="col col--xxs-12">
+															<p class="product-list__product-name">Varenavn</p>
+															<p class="product-list__product-number">Varenr. 1901277</p>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col col--xxs-8">
+															<p class="product-list__product-description">Højde
+																(mm):<span>2080</span></p>
+															<p class="product-list__product-description">Bredde
+																(mm):<span>2080</span></p>
+															<p class="product-list__product-description">Længde
+																(mm):<span>2080</span></p>
+														</div>
+														<div class="col col--xxs-8">
+															<p class="product-list__product-description">
+																Enhed:<span>2080</span></p>
+															<p class="product-list__product-description">
+																Emballage:<span>2080</span></p>
+															<p class="product-list__product-description">
+																Godstykkelse:<span>2080</span></p>
+															<p class="product-list__product-description">Lagtyk.
+																krav:<span>2080</span></p>
+														</div>
+													</div>
+												</div>
+												<div class="product-list__product">
+													<div class="row">
+														<div class="col col--xxs-4 col--m-3"><img
+																class="product-list__product-image"
+																src="assets/images/product-list__placeholder.png"
+																alt=""></div>
+														<div class="col col--xxs-12">
+															<p class="product-list__product-name">Varenavn</p>
+															<p class="product-list__product-number">Varenr. 1901277</p>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col col--xxs-8">
+															<p class="product-list__product-description">Højde
+																(mm):<span>2080</span></p>
+															<p class="product-list__product-description">Bredde
+																(mm):<span>2080</span></p>
+															<p class="product-list__product-description">Længde
+																(mm):<span>2080</span></p>
+														</div>
+														<div class="col col--xxs-8">
+															<p class="product-list__product-description">
+																Enhed:<span>2080</span></p>
+															<p class="product-list__product-description">
+																Emballage:<span>2080</span></p>
+															<p class="product-list__product-description">
+																Godstykkelse:<span>2080</span></p>
+															<p class="product-list__product-description">Lagtyk.
+																krav:<span>2080</span></p>
+														</div>
+													</div>
+												</div>
+												<div class="product-list__product">
+													<div class="row">
+														<div class="col col--xxs-4 col--m-3"><img
+																class="product-list__product-image"
+																src="assets/images/product-list__placeholder.png"
+																alt=""></div>
+														<div class="col col--xxs-12">
+															<p class="product-list__product-name">Varenavn</p>
+															<p class="product-list__product-number">Varenr. 1901277</p>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col col--xxs-8">
+															<p class="product-list__product-description">Højde
+																(mm):<span>2080</span></p>
+															<p class="product-list__product-description">Bredde
+																(mm):<span>2080</span></p>
+															<p class="product-list__product-description">Længde
+																(mm):<span>2080</span></p>
+														</div>
+														<div class="col col--xxs-8">
+															<p class="product-list__product-description">
+																Enhed:<span>2080</span></p>
+															<p class="product-list__product-description">
+																Emballage:<span>2080</span></p>
+															<p class="product-list__product-description">
+																Godstykkelse:<span>2080</span></p>
+															<p class="product-list__product-description">Lagtyk.
+																krav:<span>2080</span></p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNameName">Varenavn</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="productNameName" type="text"
+												name="productNameName" placeholder="Indtast varenavn">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNameAmount">Antal</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="productNameAmount" type="text"
+												name="productNameAmount" placeholder="Indtast antal">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNamePackaging">Emballage</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="productNamePackaging" type="text"
+												name="productNamePackaging" placeholder="Skriv evt. to blå spande">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNameHeight">Højde (mm)</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="productNameHeight" type="text"
+												name="productNameHeight" placeholder="Indtast højde i mm.">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNameWidth">Bredde (mm)</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="productNameWidth" type="text"
+												name="productNameWidth" placeholder="Indtast bredde i mm.">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNameLength">Længde (mm)</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="productNameLength" type="text"
+												name="productNameLength" placeholder="Indtast længde i mm.">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNameMyRequirement">My
+												Krav</label>
+											<span class="accordion__label--mandatory">*</span>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<!-- "Fejl" sættes med accordion__input--error-->
+											<input class="accordion__input accordion__input--error"
+												id="productNameMyRequirement" type="text"
+												name="productNameMyRequirement"
+												placeholder="Indtast my krav (tal verificering)">
+											<span class="accordion__input--error--message">
+												Dette felt er obligatorisk
+											</span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="productNameComment">Bemærkning</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<input class="accordion__input" id="productNameComment" type="text"
+												name="productNameComment"
+												placeholder="Indtast bemærkning til varenummer">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Tilføj billede eller tegn skitse</span></div>
+										<div
+											class="col file-upload--container col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<div class="file-upload file-upload--image">
+												<span class="paragraph--small file-upload__link"
+													onclick="this.nextElementSibling.click()">
+													Tilføj billede
+												</span>
+												<input class="file-upload__image-upload" type="file">
+												<div class="file-upload__thumbnail--container"><img
+														class="file-upload__thumbnail"
+														src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+														alt=""></div>
+											</div>
+											<div class="file-upload file-upload--sketch">
+												<span class="paragraph--small file-upload__link">
+													Tegn skitse
+												</span>
+												<input class="file-upload__sketch-upload" type="file">
+												<div class="file-upload__thumbnail--container"><img
+														class="file-upload__thumbnail"
+														src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+														alt=""></div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div
+											class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
+											<input class="accordion__input--checkbox" id="productNameAddNumber"
+												type="checkbox" name="productNameAddNumber">
+											<label class="accordion__label accordion__label--checkbox"
+												for="productNameAddNumber">Tilføj varenummer til vareliste</label>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="tab-container col col--xxs-16" id="approvalTab">
-								<!-- Ordreinfo-->
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Ordreinfo</span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
-									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Ordrenr. (anføres på faktura)</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">12345</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Rekvnr. (anføres på faktura)</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">12345</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Hvad fylder afhentningen</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">1 EU palle 1200x800 + 1 bdt. rør 300x80</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Totalvægt ved afhentning</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">2500 kg</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">DOT nr. (tilbuds- /ordrenummer)</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">123456</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">DOT specialopgave</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">123456</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Bemærkning</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">...</span></div>
-										</div>
+							<div class="tab-footer row row--no-gutters">
+								<div class="accordion__add-more row">
+									<div class="col col--xxs-16 text--center"><span
+											class="accordion__link accordion__link--create">Tilføj nyt emne</span>
 									</div>
 								</div>
-								<!-- Varenavn-->
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-10"><span class="accordion__headline">Varenavn (kaldes fra varenavn)</span></div>
-										<div class="col col--xxs-4 col--m-5 text--right"><span class="accordion__link accordion__link--delete">Slet emne</span></div>
-										<div class="col col--xxs-2 col--m-1"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
-									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Varenummer</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">123456</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Varenavn</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">Metal vinkel</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Antal</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">..</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Emballage</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">..</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Højde (mm)</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">..</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Bredde (mm)</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">..</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Længde (mm)</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">..</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">My Krav</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">..</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Bemærkning</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span class="accordion__text accordion__text--grey">..</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span class="accordion__label">Billede</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
-												<!-- ¯\_(ツ)_/¯--><img class="file-upload__thumbnail" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters"><span class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded accordion__label--checkbox-disabled accordion__label--checkbox-checked">Pakkes som vist på billede</span></div>
-										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters"><span class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled accordion__label--checkbox-checked">Varenummer tilføjes til vareliste</span></div>
-										</div>
+
+								<div class="tab-button-navigation row">
+									<div class="col col--xxs-16">
+										<a id="btn-order-draft-save" class="btn btn--tab-navigation"
+											onclick="draftSave();">Gem kladde</a>
+
+										<a class="btn btn--next btn--tab-navigation"
+											onclick="orderPrevNext(this, validateItems);">Næste</a>
 									</div>
 								</div>
-								<!-- Overfladebehandling-->
-								<div class="accordion js-active row row--no-gutters">
-									<div class="accordion__header row row--no-gutters">
-										<div class="col col--xxs-14"><span class="accordion__headline">Overfladebehandling</span></div>
-										<div class="col col--xxs-2"><span class="accordion__expand"><span class="icon icon--expand"></span></span></div>
+							</div>
+						</div>
+						<!-- Behandling-->
+						<div class="tab-container col col--xxs-16" id="handlingTab">
+							<!-- Overfladebehandling-->
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14"><span
+											class="accordion__headline">Overfladebehandling</span></div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row--no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="surfaceTreatmentZinc"
+												type="checkbox" name="surfaceTreatmentZinc">
+											<label class="accordion__label accordion__label--checkbox"
+												for="surfaceTreatmentZinc">Varmforzinkning</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="surfaceTreatmentAqua"
+												type="checkbox" name="surfaceTreatmentAqua">
+											<label class="accordion__label accordion__label--checkbox"
+												for="surfaceTreatmentAqua">Aquacoating*</label>
+										</div>
 									</div>
-									<div class="accordion__content row row--no-gutters">
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled accordion__label--checkbox-checked">Varmforzinkning</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled">Aquacoating*</span></div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="surfaceTreatmentMetal"
+												type="checkbox" name="surfaceTreatmentMetal">
+											<label class="accordion__label accordion__label--checkbox"
+												for="surfaceTreatmentMetal">Metalisering*</label>
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled">Metalisering*</span></div>
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled">Pulverlakering*</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="surfaceTreatmentPowder"
+												type="checkbox" name="surfaceTreatmentPowder">
+											<label
+												class="accordion__label accordion__label--checkbox accordion__label--info"
+												for="surfaceTreatmentPowder">Pulverlakering*</label>
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled">Vådlakering DS/EN ISO 12944*</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="surfaceTreatmentWet"
+												type="checkbox" name="surfaceTreatmentWet">
+											<label
+												class="accordion__label accordion__label--checkbox accordion__label--info"
+												for="surfaceTreatmentWet">Vådlakering DS/EN ISO 12944*</label>
 										</div>
-										<div class="row">
-											<div class="col col--xxs-16">
-												<p class="paragraph--small paragraph--italic">* Leveres IKKE på 48/72 timer. Forventet leveringstid er 1 - 3 uger. Når du har booket dine emner ind, kontakt da DOT for leveringstid hvis nødvendigt.</p>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16">
+											<div class="info--container">
+												<p>Leveres IKKE på 48/72 timer. Forventet leveringstid er 1 - 3 uger.
+													Når du har booket dine emner ind, kontakt da DOT for leveringstid
+													hvis nødvendigt.</p>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="tab-footer row row--no-gutters">
-									<div class="tab-button-navigation row">
-										<div class="col col--xxs-16"><a class="btn btn--prev btn--tab-navigation">Forrige</a><a class="btn btn--approval btn--tab-navigation">Godkend</a></div>
+							</div>
+							<!-- Forbehandling-->
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14"><span class="accordion__headline">Forbehandling</span>
 									</div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row--no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="pretreatmentSand"
+												type="checkbox" name="pretreatmentSand">
+											<label class="accordion__label accordion__label--checkbox"
+												for="pretreatmentSand">Sandblæsning*</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="pretreatmentSteam"
+												type="checkbox" name="pretreatmentSteam">
+											<label class="accordion__label accordion__label--checkbox"
+												for="pretreatmentSteam">Damprensning*</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="pretreatmentSwirl"
+												type="checkbox" name="pretreatmentSwirl">
+											<label class="accordion__label accordion__label--checkbox"
+												for="pretreatmentSwirl">Slyngrensning*</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="pretreatmentDrilling"
+												type="checkbox" name="pretreatmentDrilling">
+											<label class="accordion__label accordion__label--checkbox"
+												for="pretreatmentDrilling">Skæring/boring af manglende huller*</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="pretreatmentZincAcid"
+												type="checkbox" name="pretreatmentZincAcid">
+											<label class="accordion__label accordion__label--checkbox"
+												for="pretreatmentZincAcid">Afsyring af zink*</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="pretreatmentFirePasta"
+												type="checkbox" name="pretreatmentFirePasta">
+											<label class="accordion__label accordion__label--checkbox"
+												for="pretreatmentFirePasta">Indsmøring med brandpasta*</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="postTreatmentContact"
+												type="checkbox" name="postTreatmentContact">
+											<label class="accordion__label accordion__label--checkbox"
+												for="postTreatmentContact">Kundekontakt forud for skæring/boring af
+												manglende huller (mod ekspeditionsgebyr på x kr.)</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16">
+											<p class="paragraph--small paragraph--italic">* Leveres IKKE på 48/72 timer.
+												Forventet leveringstid er 1 - 3 uger. Når du har booket dine emner ind,
+												kontakt da DOT for leveringstid hvis nødvendigt.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Efterbehandling-->
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14"><span
+											class="accordion__headline">Efterbehandling</span></div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row--no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="postTreatmentThreadBrush"
+												type="checkbox" name="postTreatmentThreadBrush">
+											<label class="accordion__label accordion__label--checkbox"
+												for="postTreatmentThreadBrush">Afbørstning af gevind*</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="postTreatmentThreadCut"
+												type="checkbox" name="postTreatmentThreadCut">
+											<label class="accordion__label accordion__label--checkbox"
+												for="postTreatmentThreadCut">Opskærning af gevind*</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4">
+											<input class="accordion__input--checkbox" id="postTreatmentPlastic"
+												type="checkbox" name="postTreatmentPlastic">
+											<label class="accordion__label accordion__label--checkbox"
+												for="postTreatmentPlastic">Indpakning i plast</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16">
+											<p class="paragraph--small paragraph--italic">* Leveres IKKE på 48/72 timer.
+												Forventet leveringstid er 1 - 3 uger. Når du har booket dine emner ind,
+												kontakt da DOT for leveringstid hvis nødvendigt.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Krav til maling-->
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14"><span class="accordion__headline">Krav til
+											maling</span></div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row—no-gutters">
+									<div class="row">
+										<!-- <div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4"> -->
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
+											<label class="accordion__label"
+												for="paintingCorrosionClass">Korrosionsklasse</label>
+											<div class="accordion__select-container">
+												<select class="accordion__select" id="paintingCorrosionClass"
+													name="paintingCorrosionClass" required>
+													<option value="" disabled selected hidden>Vælg klasse (Liste
+														hardcodes)</option>
+													<option>Option 1</option>
+													<option>Option 2</option>
+													<option>Option 3</option>
+												</select>
+												<div class="accordion__select-chevron"></div>
+											</div>
+										</div>
+										<!-- <div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4"> -->
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
+											<label class="accordion__label" for="paintingRAL">RAL farve</label>
+											<input class="accordion__input" id="paintingRAL" type="text"
+												name="paintingRAL" placeholder="Indtast værdi">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
+											<label class="accordion__label" for="paintingDurability">Levetid</label>
+											<div class="accordion__select-container">
+												<select class="accordion__select" id="paintingDurability"
+													name="paintingDurability" required>
+													<option value="" disabled selected hidden>Vælg levetid</option>
+													<option>Option 1</option>
+													<option>Option 2</option>
+													<option>Option 3</option>
+												</select>
+												<div class="accordion__select-chevron"></div>
+											</div>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
+											<label class="accordion__label" for="paintingShine">Glans</label>
+											<div class="accordion__select-container">
+												<select class="accordion__select" id="paintingShine"
+													name="paintingShine" required>
+													<option value="" disabled selected hidden>Vælg levetid</option>
+													<option>Option 1</option>
+													<option>Option 2</option>
+													<option>Option 3</option>
+												</select>
+												<div class="accordion__select-chevron"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Sporbarhed-->
+							<div id="traceabilityReqGroup" class="accordion row row--no-gutters js-active">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14 accordion__expander"><span
+											class="accordion__headline accordion__expander">Sporbarhed <span
+												class="accordion__headline accordion__headline--highlighted">- manglende
+												udfyldelse medfører emner uden dokumentation!</span></span></div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row—no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
+											<label class="accordion__label" for="traceabilityStandard">Sporbarhed iht.
+												DS/EN 1090-2</label>
+											<div class="accordion__select-container">
+												<select class="accordion__select" id="traceabilityStandard"
+													data-draft="select-byvalue" name="traceabilityStandard" required="">
+
+													<option value="" selected=""></option>
+													<option value="1">DS/EN 1090 - fuld sporbarhed</option>
+													<option value="2">DS/EN 1090 - delvis sporbarhed</option>
+												</select>
+												<div class="accordion__select-chevron"></div>
+											</div>
+											<br>
+											<div class="row">
+												<input class="accordion__input--checkbox" id="traceabilityZinc"
+													data-draft="checkbox" type="checkbox" name="traceabilityZinc">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
+													for="traceabilityZinc">Ønsker måling udført efter
+													varmforzinking</label>
+											</div>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="traceabilityPainting"
+													data-draft="checkbox" type="checkbox" name="traceabilityPainting">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
+													for="traceabilityPainting">Ønsker lagtykkelsesmåling efter
+													maling</label>
+											</div>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="traceabilityDensity"
+													data-draft="checkbox" type="checkbox" name="traceabilityDensity">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded-down"
+													for="traceabilityDensity">Ønsker dokumentation for lagtykkelsen
+													tilsendt</label>
+											</div>
+
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
+											<label class="accordion__label" for="traceabilityBeyondStandard">Krav til
+												reparationslagtykkelse ud over standardkravet på 100 µm</label>
+											<input class="accordion__input" id="traceabilityBeyondStandard"
+												data-draft="text" type="number" oninput="digitsOnly(this);"
+												name="traceabilityBeyondStandard" placeholder="Indtast krav">
+
+											<label class="accordion__label" for="traceabilityLocalLayerReq">Lokal
+												lagtykkelseskrav</label>
+											<input class="accordion__input" id="traceabilityLocalLayerReq"
+												data-draft="text" type="number" oninput="digitsOnly(this);"
+												name="traceabilityLocalLayerReq" placeholder="">
+
+											<label class="accordion__label" for="traceabilityMiddleLayerReq">Middel
+												lagtykkelseskrav</label>
+											<input class="accordion__input" id="traceabilityMiddleLayerReq"
+												data-draft="text" type="number" oninput="digitsOnly(this);"
+												name="traceabilityMiddleLayerReq" placeholder="">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--l-7 col--xl-6">
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--m-10">
+											<p
+												class="paragraph--small accordion__headline--highlighted paragraph--italic">
+												* Manglende udfyldelse medfører overfladebehandling uden dokumentation.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="tab-footer row row--no-gutters">
+
+								<div class="tab-button-navigation row">
+									<div class="col col--xxs-16">
+
+										<a onclick="orderPrevNext(this);"
+											class="btn btn--prev btn--tab-navigation">Forrige</a>
+
+										<a id="btn-order-treatment-draft-save" class="btn btn--tab-navigation"
+											onclick="draftSave();">Gem kladde</a>
+
+										<a class="btn btn--next btn--tab-navigation"
+											onclick="orderPrevNext(this, validateItems);">Næste</a>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Adresser-->
+						<div class="tab-container col col--xxs-16" id="adressesTab">
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14"><span class="accordion__headline">Afhentning- og
+											leveringsadresser</span></div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row—no-gutters">
+
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
+											<label class="accordion__label" for="retrievalDate">Afhentningsdato</label>
+											<input class="accordion__input" id="retrievalDate" type="text"
+												name="retrievalDate" placeholder="Vælg dato" readonly>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
+											<label class="accordion__label" for="deliveryDate">Forventet
+												leveringsdato</label>
+											<input class="accordion__input" id="deliveryDate" type="text"
+												name="deliveryDate" placeholder="Vælg dato" readonly>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--xl-4">
+											<label class="accordion__label" for="retrievalAddress">Vælg
+												afhentningsadresse fra liste</label>
+											<div class="accordion__select-container">
+												<select class="accordion__select" id="retrievalAddress"
+													name="retrievalAddress" required>
+													<option value="" disabled selected hidden>Vælg afhentningsadresse
+													</option>
+													<option>Naurvej 22, 9000 Aalborg (standard)</option>
+													<option>Naurvej 23, 9000 Aalborg (Alternativ adresse 1)</option>
+													<option>Naurvej 24, 9000 Aalborg (Alternativ adresse 2)</option>
+												</select>
+												<div class="accordion__select-chevron"></div>
+											</div><span class="paragraph--small paragraph--grey"
+												id="retrievalAddressText">Kontor 234, Alexander Foss Gade 23,<br>9240
+												Kalundborg Havn overfor det centrale skur.</span>
+											<p class="paragraph--italic paragraph--small paragraph--accordion">
+												eller&nbsp;<span class="accordion__link" id="showRetrievalAddress">+
+													indtast adresse</span></p>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="customerDeliversOrder"
+													type="checkbox" name="customerDeliversOrder">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+													for="customerDeliversOrder">Vi leverer selv ordren til DOT</label>
+											</div>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="craneAtRetrieval"
+													type="checkbox" name="craneAtRetrieval">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+													for="craneAtRetrieval">Kran ved afhenting*</label>
+											</div>
+
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--l-6 col--l-offset-1 col--xl-4">
+											<label class="accordion__label" for="deliveryAddress">Vælg leveringssadresse
+												fra liste</label>
+											<div class="accordion__select-container">
+												<select class="accordion__select" id="deliveryAddress"
+													name="deliveryAddress" required>
+													<option value="" disabled selected hidden>Vælg leveringsadresse
+													</option>
+													<option>Naurvej 22, 9000 Aalborg (standard)</option>
+													<option>Naurvej 23, 9000 Aalborg (Alternativ adresse 1)</option>
+													<option>Naurvej 24, 9000 Aalborg (Alternativ adresse 2)</option>
+												</select>
+												<div class="accordion__select-chevron"></div>
+											</div><span class="paragraph--small paragraph--grey"
+												id="deliveryAddressText">Kontor 234, Alexander Foss Gade 23,<br>9240
+												Kalundborg Havn overfor det centrale skur.</span>
+											<p class="paragraph--italic paragraph--small paragraph--accordion">
+												eller&nbsp;<span class="accordion__link" id="showDeliveryAddress">+
+													indtast adresse</span></p>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="customerRetrievesOrder"
+													type="checkbox" name="customerRetrievesOrder">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+													for="customerRetrievesOrder">Vi afhenter selv ordren ved DOT</label>
+											</div>
+
+											<div class="row">
+												<input class="accordion__input--checkbox" id="craneAtDelivery"
+													type="checkbox" name="craneAtDelivery">
+												<label
+													class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded"
+													for="craneAtDelivery">Kran ved levering*</label>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16">
+											<p class="paragraph--small paragraph--italic">* Levering med kran kan
+												medføre længere leveringstid.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-footer row row--no-gutters">
+
+								<div class="tab-button-navigation row">
+									<div class="col col--xxs-16">
+
+										<a onclick="orderPrevNext(this);"
+											class="btn btn--prev btn--tab-navigation">Forrige</a>
+
+										<a id="btn-order-adresses-draft-save" class="btn btn--tab-navigation"
+											onclick="draftSave();">Gem kladde</a>
+
+										<a class="btn btn--next btn--tab-navigation"
+											onclick="orderPrevNext(this, validateItems);">Næste</a>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-container col col--xxs-16" id="approvalTab">
+							<!-- Ordreinfo-->
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14"><span class="accordion__headline">Ordreinfo</span>
+									</div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row—no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Ordrenr. (anføres på faktura)</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">12345</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Rekvnr. (anføres på faktura)</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">12345</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Hvad fylder afhentningen</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">1 EU palle 1200x800 + 1
+												bdt. rør 300x80</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Totalvægt ved afhentning</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">2500 kg</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">DOT nr. (tilbuds- /ordrenummer)</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">123456</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">DOT specialopgave</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">123456</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Bemærkning</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">...</span></div>
+									</div>
+								</div>
+							</div>
+							<!-- Varenavn-->
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-10"><span class="accordion__headline">Varenavn (kaldes fra
+											varenavn)</span></div>
+									<div class=""><span class="accordion__link accordion__link--delete icon"></span>
+									</div>
+									<div class="col col--xxs-2 col--m-1"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row—no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Varenummer</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">123456</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Varenavn</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">Metal vinkel</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Antal</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">..</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Emballage</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">..</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Højde (mm)</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">..</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Bredde (mm)</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">..</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Længde (mm)</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">..</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">My Krav</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">..</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Bemærkning</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6"><span
+												class="accordion__text accordion__text--grey">..</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4"><span
+												class="accordion__label">Billede</span></div>
+										<div class="col col--xxs-16 col--s-8 col--m-9 col--l-7 col--xl-6">
+											<!-- ¯\_(ツ)_/¯--><img class="file-upload__thumbnail"
+												src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+												alt="">
+										</div>
+									</div>
+									<div class="row">
+										<div
+											class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
+											<span
+												class="accordion__label accordion__label--checkbox accordion__label--checkbox-padded accordion__label--checkbox-disabled accordion__label--checkbox-checked">Pakkes
+												som vist på billede</span>
+										</div>
+									</div>
+									<div class="row">
+										<div
+											class="col col--xxs-16 col--s-8 col--s-offset-8 col--m-9 col--m-offset-7 col--l-11 col--l-offset-5 col--xl-12 col--xl-offset-4 col--no-gutters">
+											<span
+												class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled accordion__label--checkbox-checked">Varenummer
+												tilføjes til vareliste</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Overfladebehandling-->
+							<div class="accordion js-active row row--no-gutters">
+								<div class="accordion__header row row--no-gutters">
+									<div class="col col--xxs-14"><span
+											class="accordion__headline">Overfladebehandling</span></div>
+									<div class="col col--xxs-2"><span class="accordion__expand"><span
+												class="icon icon--expand"></span></span></div>
+								</div>
+								<div class="accordion__content row row—no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span
+												class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled accordion__label--checkbox-checked ">Varmforzinkning</span>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span
+												class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled">Aquacoating*</span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span
+												class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled">Metalisering*</span>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span
+												class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled">Pulverlakering*</span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--xl-4"><span
+												class="accordion__label accordion__label--checkbox accordion__label--checkbox-disabled">Vådlakering
+												DS/EN ISO 12944*</span></div>
+									</div>
+									<div class="row">
+										<div class="col col--xxs-16">
+											<p class="paragraph--small paragraph--italic">* Leveres IKKE på 48/72 timer.
+												Forventet leveringstid er 1 - 3 uger. Når du har booket dine emner ind,
+												kontakt da DOT for leveringstid hvis nødvendigt.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Godkendt-->
+							<div class="divider"></div>
+							<div class="approval-container">
+
+								<div class="accordion__content row row--no-gutters">
+									<div class="row">
+										<span class="approval-container__header">
+											Acceptér & godkend
+										</span>
+									</div>
+								</div>
+
+								<div class="accordion__content row--no-gutters">
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="approveEmail">Ønsker du at modtage
+												en
+												følgeseddel på email?</label>
+										</div>
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<input class="accordion__input" id="approveEmail" autocomplete="off"
+												maxlength="80" type="text" name="approveEmail"
+												placeholder="eksempel@eksempel.dk">
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col col--xxs-16 col--s-8 col--m-7 col--l-5 col--xl-4">
+											<label class="accordion__label" for="approveEmail">Accepter og
+												godkend</label>
+										</div>
+										<div class="col--flex-1">
+											<div class="approval-container__checkbox-container">
+												<div class="row">
+													<input class="accordion__input--checkbox" id="conditionAccept"
+														type="checkbox" name="conditionAccept">
+													<label class="accordion__label accordion__label--checkbox"
+														for="conditionAccept">Jeg
+														accepterer DOT's salgs- og leveringsbetingelser.</label>
+												</div>
+												<div class="col col--xxs-16 approve-terms-link">
+													<a href="https://dot-nordic.com/dk/download-center"
+														target="_blank">Klik
+														her for
+														at læse salgs- og leveringsbetingelserne.</a>
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+
+
+							<div class="tab-footer row row--no-gutters">
+								<div class="tab-button-navigation row">
+									<div class="col col--xxs-16"><a
+											class="btn btn--prev btn--tab-navigation">Forrige</a><a
+											class="btn btn--approval btn--tab-navigation">Godkend</a></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-			<div class="modal" id="modal" tabindex="0">
-				<div class="modal__backdrop"></div>
-				<div class="modal__container">
-					<div class="modal__content"><a class="modal__action modal__action--close" id="modalCloseBtn" href="#"><img src="assets/images/icons/close.svg" alt="Close"></a>
-						<h4 class="modal__headline">Modal header</h4>
-						<p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-					</div>
-					<div class="modal__footer"><a class="modal__action" href="#">Modal action 1</a><a class="modal__action" href="#">Modal action 1</a></div>
-				</div>
 			</div>
-			<div class="loading" id="loading" tabindex="0"></div>
-		</main>
-	</body>
+		</section>
+		<div class="modal" id="modal" tabindex="0">
+			<div class="modal__backdrop"></div>
+			<div class="modal__container">
+				<div class="modal__content"><a class="modal__action modal__action--close" id="modalCloseBtn"
+						href="#"><img src="assets/images/icons/close.svg" alt="Close"></a>
+					<h4 class="modal__headline">Modal header</h4>
+					<p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore</p>
+				</div>
+				<div class="modal__footer"><a class="modal__action" href="#">Modal action 1</a><a class="modal__action"
+						href="#">Modal action 1</a></div>
+			</div>
+		</div>
+		<div class="loading" id="loading" tabindex="0"></div>
+	</main>
+</body>
+
 </html>
