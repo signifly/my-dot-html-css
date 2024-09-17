@@ -3105,7 +3105,7 @@ textarea {
 .heading--subheading {
 	padding-top: 0.75em;
 	padding-bottom: 2em;
-	font-size: 1.166667rem;
+	font-size: 1.166667rem
 }
 
 .heading--h1 {
@@ -3211,7 +3211,8 @@ textarea {
 .btn--primary,
 .btn--next,
 .btn--approval,
-.file-upload__link {
+.file-upload__link,
+.btn--login-form {
 	color: var(--color-white);
 	background-color: var(--color-primary);
 }
@@ -3408,7 +3409,7 @@ textarea {
 
 @media (min-width: 1024px) {
 	.section--login {
-		margin-top: 22.5vh;
+		margin-top: 20vh;
 	}
 }
 
@@ -3477,6 +3478,25 @@ textarea {
 	}
 }
 
+.login-form .row:last-of-type .col:first-of-type {
+	display: flex;
+	flex-direction: row;
+}
+
+.login-form .row:last-of-type .col:first-of-type label {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.login-form label {
+	text-transform: none;
+}
+
+label.login-form__label {
+	font-size: 12px;
+	margin-bottom: 8px;
+}
+
 .login-form__btn {
 	width: 100%;
 	text-align: left;
@@ -3515,6 +3535,10 @@ textarea {
 
 .login-form__checkbox {
 	display: none;
+}
+
+.login-form__link--forgot-password {
+	font-size: 12px;
 }
 
 .login-form__checkbox:checked+.login-form__checkbox-label::after {
@@ -3927,12 +3951,12 @@ Max-width then restricts it to our breakpoints.
 	background-color: var(--color-secondary);
 }
 
-@media (min-width: 375px) and (orientation: landscape) {
+/* @media (min-width: 375px) and (orientation: landscape) {
 	.navigation {
 		flex-direction: row-reverse;
 		justify-content: space-between;
 	}
-}
+} */
 
 @media (min-width: 1024px) {
 	.navigation {
@@ -3947,10 +3971,22 @@ Max-width then restricts it to our breakpoints.
 	.navigation {
 		max-width: calc(1920px * 0.1875);
 	}
+
+}
+
+@media (max-width: 1023px) {
+	.navigation .divider {
+		display: none;
+	}
+
+	.navigation .navigation__list-container+.divider {
+		display: block;
+	}
 }
 
 .navigation {
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .navigation--container {
@@ -3983,7 +4019,8 @@ Max-width then restricts it to our breakpoints.
 	margin-top: 1.5rem;
 	margin-bottom: 2.5rem;
 	list-style-type: none;
-	height: 100vw;
+	/* height: 100vw; */
+	height: 100%;
 }
 
 @media (min-width: 375px) and (orientation: landscape) {
@@ -4092,13 +4129,13 @@ Max-width then restricts it to our breakpoints.
 	list-style-type: none;
 }
 
-@media (min-width: 375px) and (orientation: landscape) {
+/* @media (min-width: 375px) and (orientation: landscape) {
 	.options {
 		align-items: flex-start;
 		margin-top: auto;
 		margin-bottom: 3.25rem;
 	}
-}
+} */
 
 @media (min-width: 1024px) {
 	.options {
@@ -6121,8 +6158,7 @@ Max-width then restricts it to our breakpoints.
 .accordion__input[type=text],
 .accordion__input[type=number],
 .accordion__select-container,
-.login-form__input
-{
+.login-form__input {
 	width: 100%;
 	font-family: "Switzer";
 	border-bottom: 1px solid #535350;
@@ -6138,10 +6174,12 @@ Max-width then restricts it to our breakpoints.
 
 input.login-form__input {
 	width: 100%;
+	margin-bottom: 24px;
 }
 
 .accordion__input[type=text],
-.accordion__input[type=number], input.login-form__input {
+.accordion__input[type=number],
+input.login-form__input {
 	padding: 10px 16px;
 }
 
