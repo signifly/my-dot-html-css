@@ -270,9 +270,10 @@ input[type="number"] {
 	}
 }
 
-input:focus-visible {
+input:focus {
 	outline-offset: -1px;
 	outline: 2px solid var(--color-secondary) !important;
+	border-radius: 8px !important;
 }
 
 .custom-dropdown {
@@ -3192,6 +3193,11 @@ textarea {
 	display: inline-block;
 }
 
+.sketchButtonLeft,
+.sketchButtonRight {
+	bottom: 20px !important;
+}
+
 @media (min-width: 1024px) {
 	.btn {
 		width: auto;
@@ -3217,6 +3223,10 @@ textarea {
 .btn--secondary,
 .btn--prev {
 	background-color: var(--color-grey-100);
+	color: var(--color-text);
+}
+
+.btn--tertiary {
 	color: var(--color-text);
 }
 
@@ -3350,6 +3360,17 @@ textarea {
 	margin-left: -1.5em;
 	position: absolute;
 	background-color: var(--color-white);
+
+	opacity: 1 !important;
+	top: 3px;
+	right: 12px;
+
+}
+
+@media (min-width: 1024px) {
+	.btn--input-clear {
+		top: 0;
+	}
 }
 
 .btn--input-clear::before,
@@ -3567,17 +3588,18 @@ input[type=checkbox]:checked:before {
 .card:not(.card--grey) {
 	display: block;
 	height: 100%;
-	/* max-height: 10rem; */
 	padding: 32px;
 	text-align: left;
 	background-color: var(--color-base-dark);
-	/* transition: box-shadow 0.1625s cubic-bezier(0.455, 0.03, 0.515, 0.955); */
-	cursor: pointer;
 	border-radius: 12px;
 	min-height: 200px;
 	display: flex;
 	flex-direction: column;
 	margin: 0 2px 4px;
+}
+
+.card:not(.card--promo):not(.card--grey) {
+	cursor: pointer;
 }
 
 .card:not(.card--grey):hover {
@@ -3599,8 +3621,7 @@ input[type=checkbox]:checked:before {
 
 @media (min-width: 1024px) {
 
-	.card:not(.card--grey),
-	.card {
+	.card:not(.card--promo):not(.card--grey) {
 		margin: 0 8px 16px;
 	}
 
@@ -3867,7 +3888,7 @@ input[type=checkbox]:checked:before {
 	padding-block: 10px;
 	font-weight: 600;
 	font-size: 11px;
-	color: #682637;
+	color: var(--color-secondary-05);
 	line-height: 17px;
 }
 
@@ -4189,7 +4210,8 @@ Max-width then restricts it to our breakpoints.
 	padding: 40px;
 	opacity: 0;
 	box-shadow: rgba(0, 0, 0, 0.26) 0 19px 38px;
-	background-color: #efeeee;
+	/* background-color: #efeeee; */
+	background-color: white;
 	transition: opacity 0.325s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
@@ -4355,18 +4377,27 @@ Max-width then restricts it to our breakpoints.
 
 .language-select {
 	position: absolute;
-	/* top: 0.25rem; */
 	right: 1.25rem;
 	margin-left: auto;
 	top: .5rem;
+
+	border: 1px solid white;
 }
 
 @media (min-width: 1024px) {
 	.language-select {
 		top: 1.75rem;
-		/* right: 1.25rem; */
 		right: 48px;
 	}
+}
+
+.language-select.js-active {
+	background-color: white;
+	border-radius: 8px;
+	border: 1px solid lightgrey;
+
+	padding: 4px 12px;
+	margin: -4px -12px;
 }
 
 .language-select>.language-select__list {
@@ -4400,15 +4431,9 @@ Max-width then restricts it to our breakpoints.
 
 .language-select__icon {
 	display: inline-block;
-	width: 1.625rem;
 	text-align: center;
 	cursor: pointer;
-}
-
-@media (min-width: 1024px) {
-	.language-select__icon {
-		width: 1.333333rem;
-	}
+	width: 24px;
 }
 
 .language-select__icon img {
@@ -5980,6 +6005,10 @@ Max-width then restricts it to our breakpoints.
 	padding: 0;
 }
 
+.accordion__content .col {
+	position: relative;
+}
+
 .accordion.js-active .accordion__header {
 	margin-bottom: 24px
 }
@@ -6091,7 +6120,9 @@ Max-width then restricts it to our breakpoints.
 
 .accordion__input[type=text],
 .accordion__input[type=number],
-.accordion__select-container {
+.accordion__select-container,
+.login-form__input
+{
 	width: 100%;
 	font-family: "Switzer";
 	border-bottom: 1px solid #535350;
@@ -6099,10 +6130,19 @@ Max-width then restricts it to our breakpoints.
 	font-size: 15px;
 	font-weight: 400;
 	line-height: 24px;
-	padding: 10px 16px;
+	/* padding: 10px 16px; */
 	border-radius: 8px;
-	border: 1px solid #E0E0E4;
+	border: 1px solid #E0E0E4 !important;
 	resize: none;
+}
+
+input.login-form__input {
+	width: 100%;
+}
+
+.accordion__input[type=text],
+.accordion__input[type=number], input.login-form__input {
+	padding: 10px 16px;
 }
 
 .accordion__select-container {
@@ -6174,6 +6214,7 @@ Max-width then restricts it to our breakpoints.
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	padding: 13px 16px;
 }
 
 .accordion__select.js-disabled {
@@ -6212,12 +6253,15 @@ Max-width then restricts it to our breakpoints.
 	border-radius: 8px;
 	width: 100%;
 	padding: 10px;
+
+	/* cursor: pointer; */
 }
 
 .accordion__add-more .accordion__link {
 	color: black;
 	cursor: pointer;
 	font-size: 15px;
+	font-weight: 500;
 }
 
 .accordion__add-more .accordion__link.accordion__link--create::before {
@@ -6628,6 +6672,10 @@ Max-width then restricts it to our breakpoints.
 
 #subjectTab .accordion:nth-of-type(3) .accordion__content .row:last-child {
 	margin-top: -20px;
+}
+
+#card-promo {
+	background-color: #2B2A28;
 }
 
 
