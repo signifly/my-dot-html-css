@@ -6716,6 +6716,11 @@ input.login-form__input {
 	background-color: #2B2A28;
 }
 
+.item-error {
+	background-color: #FDEAED;
+	color: var(--color-pink-dark);
+}
+
 
 @media print {
 
