@@ -270,7 +270,7 @@ input[type="number"] {
 	}
 }
 
-input:not(input[type="checkbox"]):focus {
+input:not(input[type="checkbox"]):not(.filter__input):focus {
 	outline-offset: -1px;
 	outline: 2px solid var(--color-secondary) !important;
 	border-radius: 8px !important;
@@ -3392,7 +3392,6 @@ textarea {
 	cursor: pointer;
 	position: absolute;
 	background-color: var(--color-white);
-	opacity: 1 !important;
 	padding: 8px;
 	top: 3px;
 	right: 10px;
@@ -3405,8 +3404,7 @@ textarea {
 }
 
 .filter__item .btn--input-clear {
-	margin-top: .25rem;
-	margin-left: -.5rem;
+	top: 14px;
 }
 
 
@@ -4231,7 +4229,7 @@ Max-width then restricts it to our breakpoints.
 
 @media (min-width: 1024px) {
 	.modal.js-active .modal__container {
-		top: 30%;
+		top: 10%;
 	}
 }
 
@@ -4291,8 +4289,14 @@ Max-width then restricts it to our breakpoints.
 }
 
 .modal__action {
-	margin-right: 1em;
 	margin-bottom: .5em;
+}
+
+@media (min-width: 1024px) {
+	.modal__action {
+		margin-right: 1em;
+		margin-bottom: 0;
+	}
 }
 
 .modal__header {
@@ -4317,6 +4321,7 @@ Max-width then restricts it to our breakpoints.
 	text-align: right;
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-end;
 }
 
 @media (min-width: 1024px) {
@@ -4331,15 +4336,9 @@ Max-width then restricts it to our breakpoints.
 }
 
 .modal__label {
-	margin-bottom: 0.75em;
-	font-size: 0.8rem;
+	margin-bottom: 4px;
+	font-size: 13px;
 	text-transform: none;
-}
-
-@media (min-width: 1024px) {
-	.modal__label {
-		font-size: 0.777778rem;
-	}
 }
 
 .modal__input[type=text],
@@ -4348,6 +4347,7 @@ Max-width then restricts it to our breakpoints.
 	margin-bottom: 1.875em;
 	letter-spacing: normal;
 	background-color: transparent;
+	font-family: "Switzer", sans-serif !important;
 
 	border: 1px solid #E0E0E4 !important;
 	width: 100%;
@@ -4776,8 +4776,8 @@ Max-width then restricts it to our breakpoints.
 	margin-top: 7px;
 	font-size: 1rem;
 	color: var(--color-text);
-	padding: 0 30px 5px 0;
-	border-bottom: solid 1px #535350;
+	padding: 0 30px 0px 0;
+	/* border-bottom: solid 1px #535350; */
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
