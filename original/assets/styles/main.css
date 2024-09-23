@@ -259,6 +259,10 @@ input[type="number"] {
 	border: 1px solid #707070;
 }
 
+input[type="file"] {
+	cursor: pointer;
+}
+
 @media (min-width: 1024px) {
 
 	input[type="text"],
@@ -6258,6 +6262,11 @@ input.login-form__input {
 	-moz-appearance: none;
 	appearance: none;
 	padding: 13px 16px;
+	cursor: pointer;
+}
+
+.migOrderTopBtnContainer .btn {
+	cursor: pointer;
 }
 
 .accordion__select.js-disabled {
@@ -6647,14 +6656,18 @@ input.login-form__input {
 	padding: 10px 16px;
 	border-radius: 8px;
 	border: 1px solid #e0e0e4;
+
+	min-width: max-content;
 }
 
 .migOrderTopBtnContainer select {
-	padding-right: 16px;
+	/* padding-right: 16px; */
+	padding-right: 32px;
 }
 
 .migOrderTopBtnContainer .accordion__select-container {
-	min-width: 130px;
+	/* min-width: 130px; */
+	min-width: max-content;
 }
 
 @media (max-width: 769px) {
