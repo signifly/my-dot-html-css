@@ -3839,6 +3839,7 @@ input[type=checkbox]:checked:before {
 .card--promo .card__description {
 	font-size: 0.9rem;
 	display: block;
+	line-height:1.5;
 }
 
 @media (min-width: 540px) {
